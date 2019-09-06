@@ -1,9 +1,9 @@
+import datetime
 from django.conf import settings
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.exceptions import PermissionDenied
 import jwt
-import datetime
 from .serializers import UserSerializer
 from .models import User
 
@@ -23,7 +23,7 @@ class LoginView(APIView):
         try:
             return User.objects.get(email=email)
         except User.DoesNotExist:
-            raise AuthenticationFailed({'message': 'Invalid credentials'})
+            raise PermissionDenied({'message': 'Invalid credentials'})
 
     def post(self, request):
         email = request.data.get('email')
@@ -33,7 +33,7 @@ class LoginView(APIView):
         print(user)
 
         if not user.check_password(password):
-            raise AuthenticationFailed({'message': 'Invalid credentials'})
+            raise PermissionDenied({'message': 'Invalid credentials'})
 
         payload = {
             'sub': user.id,
@@ -42,4 +42,4 @@ class LoginView(APIView):
         }
 
         token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
-        return Response({'token': token, 'user': user.id})
+        return Response({'token': token, 'user': UserSerializer(user).data})

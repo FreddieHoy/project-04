@@ -8,13 +8,15 @@ import Home from './components/pages/Home'
 import Navbar from './components/common/Navbar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+import Profile from './components/pages/Profile'
+import Newsfeed from './components/pages/Newsfeed'
 
 import 'bulma'
 import './style.scss'
 
 class App extends React.Component {
   componentDidMount() {
-    axios.get('/api/users')
+    axios.get('/api/meals/')
       .then(res => console.log(res.data))
   }
 
@@ -24,8 +26,10 @@ class App extends React.Component {
         <HashRouter>
           <Navbar />
           <Switch>
+            <Route path="/newsfeed" component={Newsfeed} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
+            <Route path="/profile" component={Profile} />
             <Route path="/" component={Home} />
 
           </Switch>

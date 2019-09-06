@@ -14,7 +14,7 @@ class Auth {
   }
 
   static getUser() {
-    return JSON.parse(localStorage.getItem('user') || '{}')
+    return localStorage.getItem('userid') 
   }
 
   static removeToken() {

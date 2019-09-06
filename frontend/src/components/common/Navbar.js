@@ -33,7 +33,6 @@ class Navbar extends React.Component {
   }
 
   render() {
-    console.log(Auth.isAuthenticated()||null)
     return (
       <nav className="navbar">
         <div className="container">
@@ -54,7 +53,7 @@ class Navbar extends React.Component {
 
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-start">
-              {Auth.isAuthenticated() && <Link to="/about" className="navbar-item">NewsFeed</Link>}
+              {Auth.isAuthenticated() && <Link to="/newsfeed" className="navbar-item">NewsFeed</Link>}
               {Auth.isAuthenticated() && <Link to="/profile" className="navbar-item">Profile</Link>}
             </div>
 
