@@ -14,7 +14,7 @@ import './style.scss'
 
 class App extends React.Component {
   componentDidMount() {
-    axios.get('/api/meals')
+    axios.get('/api/users')
       .then(res => console.log(res.data))
   }
 

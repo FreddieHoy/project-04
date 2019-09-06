@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 
@@ -19,13 +20,16 @@ class Login extends React.Component {
   handleChange(e) {
     const formData = { ...this.state.formData, [e.target.name]: e.target.value }
     this.setState({ formData, error: '' })
+    console.log(this.state.formData)
   }
 
   handleSubmit(e) {
     e.preventDefault()
+    console.log('form:' + this.state.formData)
 
     axios.post('/api/login/', this.state.formData)
       .then(res => {
+        console.log(res.data)
         Auth.setUser(res.data.user)
         Auth.setToken(res.data.token) // store the token in localStorage
         this.props.history.push('/') // redirect to the cheeses INDEX page
@@ -73,6 +77,9 @@ class Login extends React.Component {
               </div>
               <hr />
               <button className="button">Submit</button>
+              <div>Already registered? Login in Here:
+                {!Auth.isAuthenticated() && <Link to="/register" className="">Register</Link>}
+              </div>
             </div>
           </form>
         </div>
