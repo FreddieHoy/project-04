@@ -4,7 +4,7 @@
   "pk": 4,
   "fields": {
     "password": "pbkdf2_sha256$150000$DxyOZqf0qPiu$MZ7VdsUtCLqn5RVBxjk2GX098/IgreicTsJeefTqWEQ=",
-    "last_login": "2019-09-06T10:12:51.648Z",
+    "last_login": "2019-09-06T16:41:47.724Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -25,14 +25,52 @@
     "password": "pbkdf2_sha256$150000$5jofL5UkqA27$w0oP9gVQMY3Mrk34k0smgbKvaKYvMBZKNAVepThUGyE=",
     "last_login": null,
     "is_superuser": false,
-    "username": "jeff",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
+    "username": "jeff-smith100",
+    "first_name": "Jeff",
+    "last_name": "Smith",
+    "email": "Jeff@ga.co",
     "is_staff": false,
     "is_active": true,
-    "date_joined": "2019-09-06T10:13:48.605Z",
-    "image": "",
+    "date_joined": "2019-09-06T10:13:48Z",
+    "image": "http://www.gstatic.com/tv/thumb/persons/532529/532529_v9_bb.jpg",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 10,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$NAcEBHIsNLbJ$n/mUOYDHkh2K3pMWskz5mporHdo5aWw1s6wZaLjHLgI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "daniel-jamerson123",
+    "first_name": "Daniel",
+    "last_name": "Jamerson",
+    "email": "dan@ga.co",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-09-06T14:38:32Z",
+    "image": "https://www.tglaw.com.au/wp-content/uploads/2011/04/James-Daniel-924x1024.jpg",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$tQNUcBjwLmy0$G1QS1TXf/dwnmHYArOMcOLDwndeX14C3IAEGGeFeTuw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "susie-dunn10",
+    "first_name": "Susie",
+    "last_name": "Dunn",
+    "email": "Susie@ga.co",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-09-06T16:51:01Z",
+    "image": "https://www.inspiringscotland.org.uk/wp-content/uploads/2017/04/susie-smiling.jpg",
     "groups": [],
     "user_permissions": []
   }
