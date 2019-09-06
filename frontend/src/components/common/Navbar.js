@@ -33,6 +33,7 @@ class Navbar extends React.Component {
   }
 
   render() {
+    console.log(Auth.isAuthenticated()||null)
     return (
       <nav className="navbar">
         <div className="container">

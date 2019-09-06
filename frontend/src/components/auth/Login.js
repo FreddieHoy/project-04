@@ -25,14 +25,13 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('form:' + this.state.formData)
 
     axios.post('/api/login/', this.state.formData)
       .then(res => {
         console.log(res.data)
-        Auth.setUser(res.data.user)
+        // Auth.setUser(res.data.user)
         Auth.setToken(res.data.token) // store the token in localStorage
-        this.props.history.push('/') // redirect to the cheeses INDEX page
+        // this.props.history.push('/') // redirect to the cheeses INDEX page
       })
       .catch(() => {
         Auth.removeToken() // remove the token from localStorage

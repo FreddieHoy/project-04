@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import AuthenticationFailed
 import jwt
+import datetime
 from .serializers import UserSerializer
 from .models import User
 
@@ -34,5 +35,11 @@ class LoginView(APIView):
         if not user.check_password(password):
             raise AuthenticationFailed({'message': 'Invalid credentials'})
 
-        token = jwt.encode({'sub': user.id}, settings.SECRET_KEY, algorithm='HS256')
-        return Response({'token': token, 'message': f'Welcome back {user.username}!'})
+        payload = {
+            'sub': user.id,
+            'iat': datetime.datetime.utcnow(),
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=6)
+        }
+
+        token = jwt.encode(payload, settings.SECRET_KEY, algorithm='HS256')
+        return Response({'token': token, 'user': user.id})
