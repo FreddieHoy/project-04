@@ -1,0 +1,40 @@
+[
+{
+  "model": "jwt_auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$DxyOZqf0qPiu$MZ7VdsUtCLqn5RVBxjk2GX098/IgreicTsJeefTqWEQ=",
+    "last_login": "2019-09-06T10:12:51.648Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "admin@ga.co",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-09-06T10:09:58.390Z",
+    "image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$5jofL5UkqA27$w0oP9gVQMY3Mrk34k0smgbKvaKYvMBZKNAVepThUGyE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "jeff",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-09-06T10:13:48.605Z",
+    "image": "",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
