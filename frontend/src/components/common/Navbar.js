@@ -37,8 +37,7 @@ class Navbar extends React.Component {
       <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item"> YesChef
-            </Link>
+            <Link to="/" className="navbar-item"> YesChef</Link>
 
             <a
               role="button"

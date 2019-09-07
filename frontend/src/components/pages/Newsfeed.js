@@ -18,12 +18,13 @@ class Profile extends React.Component {
   }
 
   render() {
+    console.log(this.state.meals)
     if(!this.state.meals) return <h2 className="title is-2">Loading ...</h2>
     return (
       <section className="section">
         <div className="container">
           {this.state.meals && this.state.meals.map(meal =>
-            <div className="column is-one-third-desktop" key={meal.id}>
+            <div className="column is-two-thirds-desktop" key={meal.id}>
               <Link to={`/meals/${meal._id}`}>
                 <Card
                   name={meal.name}

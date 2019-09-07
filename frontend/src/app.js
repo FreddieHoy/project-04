@@ -10,6 +10,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/pages/Profile'
 import Newsfeed from './components/pages/Newsfeed'
+import New from './components/meals/New'
 
 import 'bulma'
 import './style.scss'
@@ -26,6 +27,7 @@ class App extends React.Component {
         <HashRouter>
           <Navbar />
           <Switch>
+            <Route path="/meals/new" component={New} />
             <Route path="/newsfeed" component={Newsfeed} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />

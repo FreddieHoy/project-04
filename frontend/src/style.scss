@@ -1,17 +1,55 @@
 
+$gap: 200px;
 
 
-.image-one {
-  background-image: url(https://images.unsplash.com/photo-1556909172-bd5315ff61a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80)
+// ------------HOME PAGE
+
+.hero-body, .hero-sub {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
 }
-
 .hero-body {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+}
+.image-one {
+  background-image: url(https://images.unsplash.com/photo-1503011510-c0e00592713b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2900&q=80)
 }
 
-.fade-background {
-  background-color: rgba(255,255,255, 0.8)
+.dev-home-background {
+  padding: 20px;
+  width: 40%;
+  @media (max-width:700px){
+    width: 100%;
+  }
 }
+.dev-raise-home {
+  height: 200px;
+  @media (max-width:700px){
+    height: 0;
+  }
+}
+.dev-lower-text {
+  margin: auto 0;
+}
+// ----------PROFILE
+.dev-profile-pic {
+  width: 100px;
+  height: auto;
+}
+.dev-give-height {
+  height: auto;
+}
+.dev-hero-width {
+  width: 60%;
+}
+.dev-centerthis {
+  margin: auto auto;
+}
+@import "~bulma"
