@@ -21,7 +21,7 @@ class Profile extends React.Component {
     axios.get(`/api/users/${Auth.getPayload().sub}/`)
       .then(res => this.setState({ profile: res.data }))
   }
-  // 
+  //
   // filterMeals() {
   //   const mealsToDisplay = this.state.profile.meals.sort(meal => )
   // }
@@ -31,8 +31,6 @@ class Profile extends React.Component {
     if (e.target) {
       this.setState({ isHovering: !this.state.isHovering })
     }
-    console.log('it hovered')
-    console.log(this.state.isHovering)
   }
 
 
@@ -63,7 +61,7 @@ class Profile extends React.Component {
           <div className="container columns is-multiline">
             {this.state.profile.meals && this.state.profile.meals.map(meal =>
               <div className="column is-half-desktop" key={meal.id}>
-                <Link to={`/meals/${meal._id}`}>
+                <Link to={`/meals/${meal.id}`}>
                   <Card
                     image={meal.image}
                     name={meal.name}

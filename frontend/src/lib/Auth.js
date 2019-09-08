@@ -14,7 +14,7 @@ class Auth {
   }
 
   static getUser() {
-    return localStorage.getItem('userid') 
+    return localStorage.getItem('user') 
   }
 
   static removeToken() {

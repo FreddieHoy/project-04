@@ -5,15 +5,15 @@ import React from 'react'
 
 const Card = (props) => {
   return (
-    <div className="card tableBorder">
-      <div className="card-image">
-        <figure className="image">
-          <img onMouseLeave={props.handlehover} onMouseEnter={props.handlehover} src={props.image} alt={props.name} />
-        </figure>
+    <div className="">
+
+      <div className="card-image dev-card-div-sizing">
+        <img className="dev-card-image-sizing overlay"  src={props.image} alt={props.name} />
       </div>
-      {props.ishovering && <div className="card-header">
-        <div className="card-header-title">{props.name}</div>
+      {props.ishovering && <div>
+        <div className="has-text-centered">{props.name}</div>
       </div>}
+
     </div>
   )
 }
