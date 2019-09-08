@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import Auth from '../../lib/auth'
 
-import Card from '../common/Card'
+import ProfileCard from '../common/ProfileCard'
 import { Link } from 'react-router-dom'
 
 class Profile extends React.Component {
@@ -21,10 +21,6 @@ class Profile extends React.Component {
     axios.get(`/api/users/${Auth.getPayload().sub}/`)
       .then(res => this.setState({ profile: res.data }))
   }
-  //
-  // filterMeals() {
-  //   const mealsToDisplay = this.state.profile.meals.sort(meal => )
-  // }
 
 
   handleMouseHover(e) {
@@ -54,7 +50,6 @@ class Profile extends React.Component {
             </div>
 
             {Auth.isAuthenticated() && <Link to="/meals/new" className="navbar-item">Post a meal</Link>}
-
           </div>
 
           <hr />
@@ -62,7 +57,7 @@ class Profile extends React.Component {
             {this.state.profile.meals && this.state.profile.meals.map(meal =>
               <div className="column is-half-desktop" key={meal.id}>
                 <Link to={`/meals/${meal.id}`}>
-                  <Card
+                  <ProfileCard
                     image={meal.image}
                     name={meal.name}
                     handlehover={this.handleMouseHover}

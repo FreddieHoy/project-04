@@ -34,14 +34,14 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar">
-        <div className="container">
+      <nav className="navbar is-black">
+        <div className="container dev-navbar-styling">
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item"> YesChef</Link>
+            <Link to="/" className="navbar-item has-text-white">YesChef</Link>
 
             <a
               role="button"
-              className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
+              className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''} has-text-white`}
               onClick={this.toggleNavbar}
             >
               <span aria-hidden="true"></span>
@@ -52,13 +52,14 @@ class Navbar extends React.Component {
 
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-start">
-              {Auth.isAuthenticated() && <Link to="/newsfeed" className="navbar-item">NewsFeed</Link>}
-              {Auth.isAuthenticated() && <Link to="/profile" className="navbar-item">Profile</Link>}
+              {Auth.isAuthenticated() && <Link to="/newsfeed" className="navbar-item has-text-white">NewsFeed</Link>}
+              {Auth.isAuthenticated() && <Link to="/profile" className="navbar-item has-text-white">Profile</Link>}
             </div>
 
             <div className="navbar-end">
-
-              {Auth.isAuthenticated() && <a onClick={this.logout} className="navbar-item">Logout</a>}
+              {!Auth.isAuthenticated() && <Link to="/register" className="navbar-item has-text-white">Register</Link>}
+              {!Auth.isAuthenticated() && <Link to="/login" className="navbar-item has-text-white">Login</Link>}
+              {Auth.isAuthenticated() && <a onClick={this.logout} className="navbar-item has-text-white">Logout</a>}
             </div>
           </div>
         </div>

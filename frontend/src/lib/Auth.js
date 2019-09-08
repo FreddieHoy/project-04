@@ -14,7 +14,7 @@ class Auth {
   }
 
   static getUser() {
-    return localStorage.getItem('user') 
+    return localStorage.getItem('user')
   }
 
   static removeToken() {
@@ -37,7 +37,7 @@ class Auth {
 
   static isCurrentUser(user) {
     const payload = this.getPayload()
-    return payload && user._id === payload.sub
+    return payload && user.id === payload.sub
   }
 }
 

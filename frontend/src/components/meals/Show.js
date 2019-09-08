@@ -14,7 +14,9 @@ class PlotsShow extends React.Component {
     this.state = {
       formData: {
         rating: 1,
-        content: ''
+        content: '',
+        user: Auth.getUser(),
+        timeNow: new Date()
       }
     }
 
@@ -58,55 +60,51 @@ class PlotsShow extends React.Component {
   }
 
   render() {
-    console.log(this.state.meal)
     return (
-      <section className="section show-background">
+      <section className="section">
         <div className="container">
 
           {!this.state.meal && <h2 className="title is-2">Loading...</h2>}
 
-          {this.state.meal && <div className="box tableBorder">
+          {this.state.meal && <div className="">
             <header>
-              <h1 className="title is-2">{this.state.meal.name}</h1>
-              {Auth.isCurrentUser(this.state.meal.user) && <div className="buttons">
-                <Link
-                  className="button"
-                  to={`/meals/${this.state.meal.id}/edit`}
-                >Edit</Link>
-
-                <button className="button is-danger"
-                  onClick={this.handleDelete}>Delete</button>
-              </div>}
+              <h1 className="title has-text-centered is-2">{this.state.meal.name}</h1>
             </header>
 
-            <div>
-              <p>{this.state.meal.description}</p>
-            </div>
-
             <hr />
-            <div className="columns is-multiline">
-              <div className="column is-half is-centered">
-                <img className="ShowImage" src={this.state.meal.image} alt={this.state.meal.name}/>
+            <div className="is-half is-centered">
+              <img className="dev-Show-Image" src={this.state.meal.image} alt={this.state.meal.name}/>
+            </div>
+            <hr />
+
+            <div className="columns">
+              <div className="image column is-one-third profile-pic">
+                <div className="is-rounded dev-show-userpic">
+                  {this.state.meal.user.image && <img className="is-rounded dev-show-userpic" src={this.state.meal.user.image} alt={this.state.meal.user.username}/>}
+                </div>
+                <br />
+                {this.state.meal.user.username}
               </div>
 
-              <div className="column is-half is-centered">
-                <div className="table-container">
-                  <table className="table tableBorder">
-                    <tbody>
-                      <tr>
-                        <td><p>Cuisine: </p></td>
-                        <td><p>{this.state.meal.cuisine}</p></td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+              <div className="column is-two-thirds">
+                <p>{this.state.meal.description}</p>
               </div>
+
             </div>
+
+
             <hr />
             <h2 className="title is-3 has-white-text">Comments</h2>
-            <div className="column is-full">
+            <div className="column box is-full">
               <div className="column is-full">
-                {this.state.meal.comments}
+                <Comment
+                  key={this.state.meal.comments.id}
+                  user={this.state.meal.user}
+                  createdAt={this.state.timeNow}
+                  content={this.state.meal.comments.content}
+                  id={this.state.meal.comments.id}
+                  handleCommentDelete={this.handleCommentDelete}
+                />
                 {Auth.isAuthenticated() && <form onSubmit={this.handleSubmit}>
                   <hr />
                   <div className="table-container">
@@ -123,12 +121,22 @@ class PlotsShow extends React.Component {
                                 onChange={this.handleChange}
                                 value={this.state.formData.content}
                               />
+                              <button className="button">Submit</button>
                             </div>
                           </td>
                         </tr>
                       </tbody>
                     </table>
                   </div>
+                  {Auth.isCurrentUser(this.state.meal.user) && <div className="buttons">
+                    <Link
+                      className="button"
+                      to={`/meals/${this.state.meal.id}/edit`}
+                    >Edit</Link>
+
+                    <button className="button is-danger"
+                      onClick={this.handleDelete}>Delete</button>
+                  </div>}
                 </form>}
               </div>
             </div>

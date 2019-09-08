@@ -12,6 +12,7 @@ import Profile from './components/pages/Profile'
 import Newsfeed from './components/pages/Newsfeed'
 import New from './components/meals/New'
 import MealShow from './components/meals/Show'
+import MealEdit from './components/meals/Edit'
 
 import 'bulma'
 import './style.scss'
@@ -28,6 +29,7 @@ class App extends React.Component {
         <HashRouter>
           <Navbar />
           <Switch>
+            <Route path="/meals/:id/edit" component={MealEdit} />
             <Route path="/meals/new" component={New} />
             <Route path="/meals/:id" component={MealShow} />
             <Route path="/newsfeed" component={Newsfeed} />
