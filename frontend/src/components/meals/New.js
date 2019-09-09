@@ -11,9 +11,7 @@ class MealNew extends React.Component {
     this.state = {
       selectedPlotTypes: null,
       formData: {
-        user: Auth.getUser(),
-        created_at: new Date(),
-        comments: {}
+        created_at: new Date()
       },
       dropdownOpen: false,
       errors: {},
@@ -121,8 +119,8 @@ class MealNew extends React.Component {
                 <div className="field">
                   <label className="label">Description</label>
                   <input
-                    className="input"
-                    type="string"
+                    className="textarea"
+                    type="text"
                     name="description"
                     placeholder="Your inspiration, Ingredients, Method etc"
                     value={this.state.formData.description || ''}

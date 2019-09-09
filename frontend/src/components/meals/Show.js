@@ -14,7 +14,7 @@ class MealShow extends React.Component {
     this.state = {
       formData: {
         content: '',
-        user: Auth.getUser(),
+        user: Auth.getUser().username,
         timeNow: new Date()
       }
     }
@@ -28,7 +28,7 @@ class MealShow extends React.Component {
   componentDidMount() {
     axios.get(`/api/meals/${this.props.match.params.id}/`)
       .then(res => this.setState({ meal: res.data }))
-      .then(() => console.log(this.state.meal))
+      // .then(() => console.log(this.state.meal))
   }
 
   handleChange(e) {
@@ -39,21 +39,21 @@ class MealShow extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
 
-    axios.post(`/api/meals/${this.props.match.params.id}/comments`, this.state.formData, {
+    axios.post(`/api/meals/${this.props.match.params.id}/comments/`, this.state.formData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(res => this.setState({ meal: res.data, formData: { content: ''} }))
   }
 
   handleDelete(){
-    axios.delete(`/api/meals/${this.props.match.params.id}`,{
+    axios.delete(`/api/meals/${this.props.match.params.id}/`,{
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(()=> this.props.history.push('/api/meals'))
   }
 
   handleCommentDelete(e){
-    axios.delete(`/api/meals/${this.props.match.params.id}/comments/${e.target.id}`, {
+    axios.delete(`/api/meals/${this.props.match.params.id}/comments/${e.target.id}/`, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(res => this.setState({ meal: res.data }))
@@ -83,23 +83,27 @@ class MealShow extends React.Component {
                   {this.state.meal.user.image && <img className="is-rounded dev-show-userpic" src={this.state.meal.user.image} alt={this.state.meal.user.username}/>}
                 </div>
                 <br />
-                {this.state.meal.user.username}
+                <div>
+                  <p>Username: {this.state.meal.user.username}</p>
+                </div>
               </div>
 
               <div className="column is-two-thirds">
+                <p>{this.state.meal.name}</p>
+                <br />
+                <p>Cuisine: {this.state.meal.cuisine.name}</p>
+                <br />
                 <p>{this.state.meal.description}</p>
+                <br />
+                <div>
+                  {Auth.isCurrentUser(this.state.meal.user) && <div className="buttons">
+                    <Link className="button" to={`/meals/${this.state.meal.id}/edit`}>Edit</Link>
+                    <button className="button is-danger" onClick={this.handleDelete}>Delete</button>
+                  </div>}
+                </div>
               </div>
 
             </div>
-            {Auth.isCurrentUser(this.state.meal.user) && <div className="buttons">
-              <Link
-                className="button"
-                to={`/meals/${this.state.meal.id}/edit`}
-              >Edit</Link>
-
-              <button className="button is-danger"
-                onClick={this.handleDelete}>Delete</button>
-            </div>}
 
             <hr />
             <h2 className="title is-3 has-white-text">Comments</h2>

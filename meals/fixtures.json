@@ -1,178 +1,116 @@
 [
 {
-  "model": "meals.comment",
-  "pk": 3,
-  "fields": {
-    "content": "Best Cheese Tostie ever!",
-    "user": 5,
-    "created_at": "2019-09-06T10:13:50.702Z"
-  }
-},
-{
-  "model": "meals.comment",
-  "pk": 4,
-  "fields": {
-    "content": "too spicy",
-    "user": 5,
-    "created_at": "2019-09-06T10:15:06.994Z"
-  }
-},
-{
-  "model": "meals.comment",
-  "pk": 5,
-  "fields": {
-    "content": "Wow Daniel, that looks like a fantstic Chilli! You need to teach me how to make it!",
-    "user": 5,
-    "created_at": "2019-09-06T16:24:26.838Z"
-  }
-},
-{
-  "model": "meals.comment",
-  "pk": 6,
-  "fields": {
-    "content": "Wow where did you buys those noodles! maybe we can trade recipes!",
-    "user": 10,
-    "created_at": "2019-09-06T16:28:54.270Z"
-  }
-},
-{
-  "model": "meals.comment",
-  "pk": 7,
-  "fields": {
-    "content": "This takes me back to when I was younger to!",
-    "user": 10,
-    "created_at": "2019-09-06T16:50:11.515Z"
-  }
-},
-{
-  "model": "meals.comment",
-  "pk": 8,
-  "fields": {
-    "content": "Me and Daniel want to go to France!",
-    "user": 5,
-    "created_at": "2019-09-06T16:55:19.657Z"
-  }
-},
-{
   "model": "meals.cuisine",
-  "pk": 2,
+  "pk": 14,
   "fields": {
     "name": "British"
   }
 },
 {
   "model": "meals.cuisine",
-  "pk": 3,
-  "fields": {
-    "name": "Indian"
-  }
-},
-{
-  "model": "meals.cuisine",
-  "pk": 4,
-  "fields": {
-    "name": "Mexican"
-  }
-},
-{
-  "model": "meals.cuisine",
-  "pk": 5,
-  "fields": {
-    "name": "Thai"
-  }
-},
-{
-  "model": "meals.cuisine",
-  "pk": 7,
+  "pk": 15,
   "fields": {
     "name": "Italian"
   }
 },
 {
   "model": "meals.cuisine",
-  "pk": 8,
+  "pk": 16,
   "fields": {
-    "name": "French"
+    "name": "Indian"
   }
 },
 {
   "model": "meals.cuisine",
-  "pk": 9,
+  "pk": 17,
+  "fields": {
+    "name": "Thai"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 18,
   "fields": {
     "name": "Japanese"
   }
 },
 {
   "model": "meals.cuisine",
-  "pk": 10,
+  "pk": 19,
   "fields": {
-    "name": "Chinese"
+    "name": "French"
   }
 },
 {
-  "model": "meals.cuisine",
-  "pk": 11,
+  "model": "meals.meal",
+  "pk": 2,
   "fields": {
-    "name": "Greek"
-  }
-},
-{
-  "model": "meals.cuisine",
-  "pk": 12,
-  "fields": {
-    "name": "African"
+    "name": "Cheese Tostie",
+    "description": "This is my guilty pleasure snack. The trick is to add a little mustard!",
+    "image": "https://www.deliciousmagazine.co.uk/wp-content/uploads/2019/03/toastie-768x960.jpg",
+    "cuisine": 14,
+    "user": 5,
+    "created_at": "2019-09-09T09:53:54.931Z"
   }
 },
 {
   "model": "meals.meal",
   "pk": 3,
   "fields": {
-    "name": "Cheese Tostie",
-    "description": "YUM YUMThere are some British foods which ooze comfort at the mere mention of their name, and none more so than the cheese toastie. Alongside a bacon butty (bacon sandwich) the toastie is the one that makes everyone drool (unless, of course, you don't like cheese).   The popularity of the toastie comes from the ease and speed of making one\u2013this has to be one of the simplest recipes ever\u2013and the creativity of an endless choice of bread, cheeses, and assorted fillings.",
-    "image": "https://www.deliciousmagazine.co.uk/wp-content/uploads/2019/03/toastie-768x960.jpg",
-    "cuisine": 2,
+    "name": "Pesto Pasta",
+    "description": "I grew up eating this, really brings back memories of hanging out with my friends!",
+    "image": "https://www.gimmesomeoven.com/wp-content/uploads/2013/06/Arugula-Pesto-Pasta-1.jpg",
+    "cuisine": 15,
     "user": 10,
-    "comments": 3,
-    "created_at": "2019-09-06T10:14:20.577Z"
+    "created_at": "2019-09-09T09:55:46.166Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 4,
+  "fields": {
+    "name": "Spicy Red Curry",
+    "description": "This is my mega extra Hot curry, the trick is to add lots of chillies!  I can spend my entire day in the kitchen during the weekend\ud83d\udc83. As a lover of food, I appreciate the intricacy when it comes to food preparation and I know good quality food takes time and patience. Zinny Factor I am sure this is a recipe your readers will love, I can not keep this deliciousness away from your readers \ud83d\ude01",
+    "image": "http://thefooddisciple.com/wp-content/uploads/2017/07/Spicy-Thai-Red-Curry-1.1.jpg",
+    "cuisine": 16,
+    "user": 11,
+    "created_at": "2019-09-09T09:58:34.477Z"
   }
 },
 {
   "model": "meals.meal",
   "pk": 5,
   "fields": {
-    "name": "Chilli Con Carne",
-    "description": "Ingredients: 1 large onion, 1 red pepper, 2 garlic cloves, 1 tbsp oil, 1 heaped tsp hot chilli powder (or 1 level tbsp if you only have mild), 1 tsp paprika,  1 tsp ground cumin, 500g lean minced beef, 1 beef stock cube, 400g can chopped tomatoes, \u00bd tsp dried marjoram, 1 tsp sugar,   (or add a thumbnail-sized piece of dark chocolate along with the beans instead, see tip), 2 tbsp tomato pur\u00e9e 410g can red kidney beans plain boiled long grain rice, to serve soured cream, to serve",
-    "image": "https://www.deliciousmagazine.co.uk/wp-content/uploads/2018/09/321589-1-eng-GB_4533.jpg",
-    "cuisine": 4,
+    "name": "Beef Burger",
+    "description": "1 small onion  , diced 500g good-quality beef mince 1 egg  1 tbsp vegetable oil 4 burger buns All or any of the following to serve: sliced tomato  , beetroot, horseradish sauce, mayonnaise, ketchup, handful iceberg lettuce, rocket, watercress",
+    "image": "https://www.tasteofhome.com/wp-content/uploads/2017/10/exps41063_SD163614D12_01_3b.jpg",
+    "cuisine": 14,
     "user": 10,
-    "comments": 5,
-    "created_at": "2019-09-06T16:24:28.817Z"
+    "created_at": "2019-09-09T10:00:19.548Z"
   }
 },
 {
   "model": "meals.meal",
   "pk": 6,
   "fields": {
-    "name": "Home Made Pad Thai",
-    "description": "Here\u2019s a simple easy recipe for the BEST Pad.Believe me, when I tell you, I\u2019ve had a lot of Pad Thai in my life. Here and all across Thailand! It\u2019s one of my favorite things to eat, and so I\u2019ve made a practice of learning how to perfect this dish. It\u2019s all about the flavor balance of the sauce, and the texture of the noodles. Thai that contains very accessible ingredients and only takes about 15 minutes of actual cooking time.",
-    "image": "https://ucarecdn.com/d248d721-b4c1-402b-86e2-ff1edcef8972/-/scale_crop/800x600/center/e5e368ef2fa2b378c09dba257b843dff.jpg",
-    "cuisine": 5,
-    "user": 5,
-    "comments": 6,
-    "created_at": "2019-09-06T16:28:59.590Z"
+    "name": "PadThai",
+    "description": "Believe me, when I tell you, I\u2019ve had a lot of Pad Thai in my life. Here and all across Thailand! It\u2019s one of my favorite things to eat, and so I\u2019ve made a practice of learning how to perfect this dish. It\u2019s all about the flavor balance of the sauce, and the texture of the noodles.",
+    "image": "https://www.kitchensanctuary.com/wp-content/uploads/2019/07/Pad-Thai-square-FS.jpg",
+    "cuisine": 17,
+    "user": 11,
+    "created_at": "2019-09-09T10:02:10.430Z"
   }
 },
 {
   "model": "meals.meal",
   "pk": 7,
   "fields": {
-    "name": "Pesto Pasta",
-    "description": "This was my favorite dish growing up!",
-    "image": "https://www.simplyrecipes.com/wp-content/uploads/2011/05/chicken-florentine-pasta-vertical-a-1800.jpg",
-    "cuisine": 7,
+    "name": "Home made Sushi",
+    "description": "Who loves sushi?? Raise your hand! We do too, but we hardly ever eat it because 1. It's kind of expensive when you go out to get really good sushi, and 2. Making it at home always felt really daunting. But, recently we were thinking of a fun new recipe to try and when sushi came up in our brainstorm session (yes, we brainstorm about what we want to make for dinner), we decided - why not?! And boy were we happy we went for it!",
+    "image": "http://www.nathanandchristinamakefood.com/static/images/620/homemade-sushi-0.jpg",
+    "cuisine": 18,
     "user": 5,
-    "comments": 7,
-    "created_at": "2019-09-06T16:50:14.080Z"
+    "created_at": "2019-09-09T10:03:43.360Z"
   }
 },
 {
@@ -180,12 +118,41 @@
   "pk": 8,
   "fields": {
     "name": "French Onion Soup",
-    "description": "Ingredients. 6 large red or yellow onions (about 3 pounds), peeled and thinly sliced root to stem (see How to Slice an Onion), about 10 cups of sliced onions total. 4 tablespoons extra virgin olive oil. 2 tablespoons butter. 1 teaspoon of sugar. Salt. 2 cloves garlic, minced.",
-    "image": "https://andrewzimmern.com/wp-content/uploads/2014/10/OnionSoup1.jpg",
-    "cuisine": 8,
+    "description": "French onion soup is a type of soup usually based on meat stock and onions, and often served gratin\u00e9ed with croutons and cheese on top of a large piece of bread. Although ancient in origin, the dish underwent a resurgence of popularity in the 1960s in the United States due to a greater interest in French cuisine.",
+    "image": "https://pinchandswirl.com/wp-content/uploads/2013/12/French-Onion-Soup-served-in-white-bowls-featured.jpg",
+    "cuisine": 19,
+    "user": 5,
+    "created_at": "2019-09-09T10:04:56.445Z"
+  }
+},
+{
+  "model": "meals.comment",
+  "pk": 1,
+  "fields": {
+    "content": "Looks a little dry",
+    "user": 5,
+    "created_at": "2019-09-09T10:07:08.982Z",
+    "meal": 5
+  }
+},
+{
+  "model": "meals.comment",
+  "pk": 2,
+  "fields": {
+    "content": "Not sure my kids should eat too many of those",
     "user": 11,
-    "comments": 8,
-    "created_at": "2019-09-06T16:56:47.877Z"
+    "created_at": "2019-09-09T10:07:30.399Z",
+    "meal": 5
+  }
+},
+{
+  "model": "meals.comment",
+  "pk": 3,
+  "fields": {
+    "content": "There not good for the enviroment",
+    "user": 5,
+    "created_at": "2019-09-09T10:07:44.161Z",
+    "meal": 5
   }
 }
 ]

@@ -6,7 +6,7 @@ from django.http import Http404
 from jwt_auth.models import User
 
 from .models import Meal, Comment
-from .serializers import PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer
+from .serializers import PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer, CommentSerializer
 
 class MealListView(APIView):
 
@@ -60,17 +60,13 @@ class MealDetailView(APIView):
 
 class CommentListView(APIView):
 
-    def get(self, _request):
-        books = Comment.objects.all()
-        serializer = PopulatedCommentSerializer(books, many=True)
-        return Response(serializer.data)
-
-
-    def post(self, request):
-        serializer = PopulatedCommentSerializer(data=request.data)
+    def post(self, request, pk):
+        meal = Meal.objects.get(pk=pk)
+        serializer = CommentSerializer(data=request.data)
         if serializer.is_valid():
             # automatically sets the user to be the logged in user
-            serializer.save(user=request.user)
+            serializer.save(meal=meal, user=request.user)
+            serializer = PopulatedMealSerializer(meal)
             return Response(serializer.data, status=201)
 
         return Response(serializer.errors, status=422)
@@ -78,7 +74,7 @@ class CommentListView(APIView):
 
 class CommentDetailView(APIView):
 
-    def get_meal(self, pk):
+    def get_comment(self, pk):
         try:
             comment = Comment.objects.get(pk=pk)
         except Comment.DoesNotExist: #if this is an error
@@ -87,14 +83,13 @@ class CommentDetailView(APIView):
         return comment
 
     def get(self, _request, pk):
-        meal = self.get_meal(pk)
+        meal = self.get_comment(pk)
 
         serializer = PopulatedCommentSerializer(meal)
         return Response(serializer.data)
 
-    def delete(self, _request, pk):
-        meal = self.get_meal(pk)
-
+    def delete(self, _request, **kwargs):
+        meal = self.get_comment(kwargs['pk'])
         meal.delete()
         return Response(status=204)
 
