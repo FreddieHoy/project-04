@@ -9,6 +9,7 @@ import Navbar from './components/common/Navbar'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import Profile from './components/pages/Profile'
+import About from './components/pages/About'
 import Newsfeed from './components/pages/Newsfeed'
 import New from './components/meals/New'
 import MealShow from './components/meals/Show'
@@ -35,6 +36,7 @@ class App extends React.Component {
             <Route path="/newsfeed" component={Newsfeed} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
+            <Route path="/about" component={About} />
             <Route path="/profile" component={Profile} />
             <Route path="/" component={Home} />
 

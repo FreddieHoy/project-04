@@ -9,15 +9,13 @@ class MealNew extends React.Component {
   constructor() {
     super()
     this.state = {
-      selectedPlotTypes: null,
+      cuisines: [],
       formData: {
-        created_at: new Date()
+        created_at: new Date(),
+        cuisine: {}
       },
       dropdownOpen: false,
-      errors: {},
-      cuisine: {
-        name: ''
-      }
+      errors: {}
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -29,6 +27,12 @@ class MealNew extends React.Component {
 
   }
 
+  componentDidMount() {
+    axios.get('/api/cuisines/')
+      .then(res => this.setState({ cuisines: res.data }))
+      .then(() => console.log(this.state.cuisines))
+  }
+
   handleSubmit(e) {
     e.preventDefault()
 
@@ -37,11 +41,13 @@ class MealNew extends React.Component {
     })
       .then((res) => this.props.history.push(`/meals/${res.data._id}/`))
       .catch(err => this.setState({ errors: err.response.data }))
+
   }
 
   handleChange(e) {
     const formData = { ...this.state.formData, [e.target.name]: e.target.value }
     this.setState({ formData })
+    console.log(this.state.formData)
   }
 
   handleArrayChange(e) {
@@ -59,8 +65,14 @@ class MealNew extends React.Component {
   }
 
   handleCuisineTypeChange(e) {
-    const formData = {...this.state.formData, cuisine: e.target.value }
+    const chosenCuisineObject = JSON.stringify(this.state.cuisines.filter(cuisine => cuisine.id === e.target.value))
+    
+    console.log(chosenCuisineObject)
+
+    const formData = {...this.state.formData, cuisine: chosenCuisineObject }
+    console.log(e.target.value)
     this.setState({ formData, dropdownOpen: false })
+    console.log(this.state.formData)
 
   }
 
@@ -71,6 +83,8 @@ class MealNew extends React.Component {
 
 
   render() {
+
+    if(!this.state.cuisines) return <h2 className="title is-2">Loading ...</h2>
     return (
       <section className="section add-background">
         <div className="container">
@@ -133,7 +147,7 @@ class MealNew extends React.Component {
                   <div className={`dropdown ${this.state.dropdownOpen ? 'is-active' : ''}`} onClick={this.toggleDropdown}>
                     <div className="dropdown-trigger">
                       <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>↓: {this.state.formData.cuisine}</span>
+                        <span>↓: choose</span>
                         <span className="icon is-small">
                           <i className="fas fa-angle-down" aria-hidden="true"></i>
                         </span>
@@ -141,29 +155,31 @@ class MealNew extends React.Component {
                     </div>
                     <div className="dropdown-menu" id="dropdown-menu" role="menu">
                       <div className="dropdown-content">
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Italian'>Italian</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Mexican'>Mexican</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='British'>British</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='French'>French</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Thai'>Thai</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Indian'>Indian</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Japanese'>Japanese</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Chinese'>Chinese</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='African'>African</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Greek'>Greek</button>
-                        <button type="button" className="dropdown-item" onClick={this.handleCuisineTypeChange} value='Chinese'>Chinese</button>
+
+                        {this.state.cuisines.map(cuisine =>
+                          <button
+                            key={cuisine.id}
+                            className="dropdown-item"
+                            type="button"
+                            onClick={this.handleCuisineTypeChange}
+                            value={cuisine.id}
+                          >
+                            {cuisine.name}
+                          </button>
+                        )}
+
+                        <button type="button" className="dropdown-item" onClick={this.handlePlotTypeChange} value='Allotment'>Allotment</button>
                       </div>
+
                     </div>
                     {this.state.errors.cuisine && <small className="help is-danger">{this.state.errors.cuisine}</small>}
                   </div>
                 </div>
               </div>
             </div>
-
             <hr />
             <button className="button">Submit</button>
           </form>
-
         </div>
       </section>
     )

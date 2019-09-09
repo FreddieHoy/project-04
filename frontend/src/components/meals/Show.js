@@ -109,7 +109,7 @@ class MealShow extends React.Component {
             <h2 className="title is-3 has-white-text">Comments</h2>
             <div className="column box is-full">
               <div className="">
-                {this.state.meal.comments.map(comment =>
+                {this.state.meal.comments && this.state.meal.comments.map(comment =>
                   <Comment
                     key={comment.id}
                     user={comment.user}

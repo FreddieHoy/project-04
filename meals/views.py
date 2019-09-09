@@ -5,8 +5,8 @@ from rest_framework.response import Response
 from django.http import Http404
 from jwt_auth.models import User
 
-from .models import Meal, Comment
-from .serializers import PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer, CommentSerializer
+from .models import Meal, Comment, Cuisine
+from .serializers import PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer, CommentSerializer, CuisineSerializer
 
 class MealListView(APIView):
 
@@ -57,6 +57,14 @@ class MealDetailView(APIView):
 
         meal.delete()
         return Response(status=204)
+
+class CuisineListView(APIView):
+
+    def get(self, _request):
+        cuisines = Cuisine.objects.all()
+        serializer = CuisineSerializer(cuisines, many=True)
+        return Response(serializer.data)
+
 
 class CommentListView(APIView):
 

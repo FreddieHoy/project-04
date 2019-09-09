@@ -38,7 +38,7 @@ class Navbar extends React.Component {
         <div className="container dev-navbar-styling">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item has-text-white">YesChef</Link>
-
+            <Link to="/about" className="navbar-item has-text-white">About</Link>
             <a
               role="button"
               className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''} has-text-white`}
