@@ -1,11 +1,12 @@
-from django.http import Http404
-from jwt_auth.models import User
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
-from .models import Meal
-from .serializers import MealSerializer, PopulatedMealSerializer, PopulatedUserSerializer
+from django.http import Http404
+from jwt_auth.models import User
+
+from .models import Meal, Comment
+from .serializers import PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer
 
 class MealListView(APIView):
 
@@ -38,18 +39,58 @@ class MealDetailView(APIView):
     def get(self, _request, pk):
         meal = self.get_meal(pk)
 
-        serializer = MealSerializer(meal)
+        serializer = PopulatedMealSerializer(meal)
         return Response(serializer.data)
 
     def put(self, request, pk):
         meal = self.get_meal(pk)
 
-        serializer = MealSerializer(meal, data=request.data)
+        serializer = PopulatedMealSerializer(meal, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)
 
         return Response(serializer.errors, status=422)
+
+    def delete(self, _request, pk):
+        meal = self.get_meal(pk)
+
+        meal.delete()
+        return Response(status=204)
+
+class CommentListView(APIView):
+
+    def get(self, _request):
+        books = Comment.objects.all()
+        serializer = PopulatedCommentSerializer(books, many=True)
+        return Response(serializer.data)
+
+
+    def post(self, request):
+        serializer = PopulatedCommentSerializer(data=request.data)
+        if serializer.is_valid():
+            # automatically sets the user to be the logged in user
+            serializer.save(user=request.user)
+            return Response(serializer.data, status=201)
+
+        return Response(serializer.errors, status=422)
+
+
+class CommentDetailView(APIView):
+
+    def get_meal(self, pk):
+        try:
+            comment = Comment.objects.get(pk=pk)
+        except Comment.DoesNotExist: #if this is an error
+            raise Http404 #do this - do an error
+
+        return comment
+
+    def get(self, _request, pk):
+        meal = self.get_meal(pk)
+
+        serializer = PopulatedCommentSerializer(meal)
+        return Response(serializer.data)
 
     def delete(self, _request, pk):
         meal = self.get_meal(pk)

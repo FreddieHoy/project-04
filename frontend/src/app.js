@@ -20,7 +20,7 @@ import './style.scss'
 class App extends React.Component {
   componentDidMount() {
     axios.get('/api/meals/')
-      .then(res => console.log(res.data))
+    // .then(res => console.log(res.data))
   }
 
   render() {

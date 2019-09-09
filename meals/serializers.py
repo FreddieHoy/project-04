@@ -21,11 +21,15 @@ class CommentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Comment
-        fields = ('id', 'content', 'user',)
+        fields = ('id', 'content', 'user', 'created_at',)
+
+class PopulatedCommentSerializer(CommentSerializer):
+
+    user = UserSerializer()
 
 class PopulatedMealSerializer(MealSerializer):
 
-    comments = CommentSerializer()
+    comments = PopulatedCommentSerializer(many=True)
     user = UserSerializer()
     cuisine = CuisineSerializer()
 

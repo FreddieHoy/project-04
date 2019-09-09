@@ -20,7 +20,6 @@ class Login extends React.Component {
   handleChange(e) {
     const formData = { ...this.state.formData, [e.target.name]: e.target.value }
     this.setState({ formData, error: '' })
-    console.log(this.state.formData)
   }
 
   handleSubmit(e) {

@@ -7,13 +7,12 @@ import { Link } from 'react-router-dom'
 import Auth from '../../lib/Auth'
 import Comment from '../common/Comment'
 
-class PlotsShow extends React.Component {
+class MealShow extends React.Component {
 
   constructor() {
     super()
     this.state = {
       formData: {
-        rating: 1,
         content: '',
         user: Auth.getUser(),
         timeNow: new Date()
@@ -29,6 +28,7 @@ class PlotsShow extends React.Component {
   componentDidMount() {
     axios.get(`/api/meals/${this.props.match.params.id}/`)
       .then(res => this.setState({ meal: res.data }))
+      .then(() => console.log(this.state.meal))
   }
 
   handleChange(e) {
@@ -42,7 +42,7 @@ class PlotsShow extends React.Component {
     axios.post(`/api/meals/${this.props.match.params.id}/comments`, this.state.formData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
-      .then(res => this.setState({ meal: res.data, formData: { rating: 1, content: ''} }))
+      .then(res => this.setState({ meal: res.data, formData: { content: ''} }))
   }
 
   handleDelete(){
@@ -91,22 +91,31 @@ class PlotsShow extends React.Component {
               </div>
 
             </div>
+            {Auth.isCurrentUser(this.state.meal.user) && <div className="buttons">
+              <Link
+                className="button"
+                to={`/meals/${this.state.meal.id}/edit`}
+              >Edit</Link>
 
+              <button className="button is-danger"
+                onClick={this.handleDelete}>Delete</button>
+            </div>}
 
             <hr />
             <h2 className="title is-3 has-white-text">Comments</h2>
             <div className="column box is-full">
-              <div className="column is-full">
-                <Comment
-                  key={this.state.meal.comments.id}
-                  user={this.state.meal.user}
-                  createdAt={this.state.timeNow}
-                  content={this.state.meal.comments.content}
-                  id={this.state.meal.comments.id}
-                  handleCommentDelete={this.handleCommentDelete}
-                />
+              <div className="">
+                {this.state.meal.comments.map(comment =>
+                  <Comment
+                    key={comment.id}
+                    user={comment.user}
+                    createdAt={comment.created_at}
+                    content={comment.content}
+                    id={comment.id}
+                    handleCommentDelete={this.handleCommentDelete}
+                  />
+                )}
                 {Auth.isAuthenticated() && <form onSubmit={this.handleSubmit}>
-                  <hr />
                   <div className="table-container">
                     <table className="table is-fullwidth">
                       <tbody>
@@ -121,6 +130,7 @@ class PlotsShow extends React.Component {
                                 onChange={this.handleChange}
                                 value={this.state.formData.content}
                               />
+                              <br />
                               <button className="button">Submit</button>
                             </div>
                           </td>
@@ -128,15 +138,6 @@ class PlotsShow extends React.Component {
                       </tbody>
                     </table>
                   </div>
-                  {Auth.isCurrentUser(this.state.meal.user) && <div className="buttons">
-                    <Link
-                      className="button"
-                      to={`/meals/${this.state.meal.id}/edit`}
-                    >Edit</Link>
-
-                    <button className="button is-danger"
-                      onClick={this.handleDelete}>Delete</button>
-                  </div>}
                 </form>}
               </div>
             </div>
@@ -149,4 +150,4 @@ class PlotsShow extends React.Component {
   }
 }
 
-export default PlotsShow
+export default MealShow
