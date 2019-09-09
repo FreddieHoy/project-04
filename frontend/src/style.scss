@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+JP&display=swap');
 
+$family-primary: 'Noto Serif JP', serif;
+$family-secondary: 'Noto Serif JP', serif;
 $gap: 200px;
 
-
+body {
+	font-family: 'Noto Serif JP', serif;
+	-webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
 // ------------HOME PAGE
 
 .hero-body, .hero-sub {

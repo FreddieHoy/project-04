@@ -15,6 +15,7 @@ import New from './components/meals/New'
 import MealShow from './components/meals/Show'
 import MealEdit from './components/meals/Edit'
 
+import '@fortawesome/fontawesome-free/js/all.js'
 import 'bulma'
 import './style.scss'
 
