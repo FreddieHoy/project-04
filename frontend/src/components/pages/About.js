@@ -1,6 +1,6 @@
 import React from 'react'
-// import gitHubIcon from '../assets/github-icon.png'
-// import linkedinIcon from '../assets/linkedin-icon.png'
+import WomanChopping from '../assets/WomanChopping.jpg'
+import CookBook from '../assets/CookBook.jpg'
 
 const About = () => {
   return(
@@ -9,16 +9,24 @@ const About = () => {
         <div className="box">
           <h2 className="title is-3 has-text-centered has-white-text">What we do!</h2>
           <hr />
-          <p>This site is for all those foodies out there. Who are passionate about cooking! A place to share dishes, recipes, ideas, cuisines and goodtimes!
-            <br />
-            <br />
-          Share what you have made for dinner, for family sunday lunch, for your post work out gains or for your midnight guilty indulgence! Comment on others posts, see their recepies and enjoy!</p>
+          <div className="columns">
+            <div className="column">
+              <p>This site is for all those foodies out there. Who are passionate about cooking! A place to share dishes, recipes, ideas, cuisines and goodtimes! <br /> <br />Share what you have made for dinner, for family sunday lunch, for your post work out gains or for your midnight guilty indulgence! Comment on others posts, see their recepies and enjoy! <br /> <br /> Many of our users use this site as a way release stress. Here at YesChef we value how our customers feel and have optimised the site for joy! Others use this site to discover a new passion! Sharing cooking with friends and family is a very joyful process and so we encorage it! 😁</p>
+              <hr />
+              <img src={CookBook} alt='Cook Book' />
+            </div>
+            <div className="column">
+              <img src={WomanChopping} alt='Woman Chopping' />
+            </div>
+          </div>
+
         </div>
         <div className="box">
           <h2 className="subtitle is-3 has-white-text">About the Site</h2>
           <hr />
           <div className="columns">
             <div className="column">
+              <h2 className="subtitle is-5 has-white-text">Developer</h2>
               <p>This site has been developed by Freddie Hoy, as part of the General Assembly Software Engineering Immersive Course.
                 <br />
                 <br />
@@ -28,9 +36,9 @@ const About = () => {
               <br />
               <ul>Background images - Unsplash artists:
                 <li>• Home page - Kitchen - Mikael Cho</li>
+                <li>• About page - Woman Chopping - Facundo Ruiz</li>
+                <li>• About page - Cook Book - S O C I A L . C U T </li>
               </ul>
-              <p>Icons made by smalllikeart from www.flaticon.com</p>
-              <p>Smiling Carrot from www.vegetableislands.com</p>
             </div>
             <div className="column">
 

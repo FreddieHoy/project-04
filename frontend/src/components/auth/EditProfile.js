@@ -3,6 +3,8 @@ import axios from 'axios'
 // import { toast } from 'react-toastify'
 import Auth from '../../lib/Auth'
 
+import ReactFilestack from 'filestack-react'
+
 class EditProfile extends React.Component {
 
   constructor() {
@@ -16,8 +18,13 @@ class EditProfile extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
+  componentDidMount() {
+    axios.get(`api/users/${this.props.match.params.id}`)
+      .then(res => this.setState({ formData: res.data }))
+      .then(() => console.log(this.state.formData))
+  }
+
   handleChange(e) {
-    console.log(this.state.formData)
     const formData = { ...this.state.formData, [e.target.name]: e.target.value }
     const errors = { ...this.state.errors, [e.target.name]: '' }
     this.setState({ formData, errors })
@@ -25,13 +32,18 @@ class EditProfile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    axios.put('/api/register/', this.state.formData)
-      .then(res => {
-        console.log(res)
-        // toast.success(res.data.message)
-        this.props.history.push('/login/')
-      })
+
+    axios.put(`api/users/${this.props.match.params.id}/`, this.state.formData, {
+      headers: { Authorization: `Bearer ${Auth.getToken()}`}
+    })
+      .then(() => this.props.history.push('/profile/'))
       .catch(err => this.setState({ errors: err.response.data }))
+  }
+
+  handleUploadImages(result) {
+    const formData = {...this.state.formData, image: result.filesUploaded[0].url}
+    this.setState({ formData })
+    console.log(this.state.formData)
   }
 
   render() {
@@ -39,7 +51,7 @@ class EditProfile extends React.Component {
       <section className="section register-background">
         <div className="container">
           <div className="box tableBorder">
-            <h2 className="title is-3 has-white-text">Register</h2>
+            <h2 className="title is-3 has-white-text">Edit Profile</h2>
             <p>We are going to share meals bruv</p>
           </div>
           <div className="box tableBorder">
@@ -63,49 +75,46 @@ class EditProfile extends React.Component {
                     className="input"
                     type="email"
                     name="email"
-                    value={this.formData.email}
+                    value={this.state.formData.email}
                     onChange={this.handleChange}
                   />
                 </div>
                 {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
               </div>
-              <div className="field">
-                <label className="label">Password</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    type="password"
-                    name="password"
-                    // value={this.password}
-                    onChange={this.handleChange}
-                  />
+              <div>
+                <hr />
+                <label className="label">Image</label>
+                <ReactFilestack
+                  mode="transform"
+                  apikey={process.env.YOUR_API_KEY}
+                  buttonText="Upload Photo"
+                  buttonClass="button"
+                  name="image"
+                  className="upload-image"
+                  onSuccess={(result) => this.handleUploadImages(result)}
+                  preload={true}
+                />
+                <br />
+                <br />
+                <div className="box dev-give-height">
+                  {!this.state.formData.image && <p className="has-text-centered">Image</p>}
+                  {this.state.formData.image && <img src={this.state.formData.image} />}
+                  {this.state.errors.image && <small className="help is-danger">{this.state.errors.image}</small>}
                 </div>
-                {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
               </div>
+              <hr />
               <div className="field">
-                <label className="label">Password Confirmation</label>
+                <label className="label">Bio</label>
                 <div className="control">
                   <input
-                    className="input"
-                    type="password"
-                    name="password_confirmation"
-                    // value={this.
+                    className="textarea"
+                    name="bio"
+                    value={this.state.formData.bio}
+                    placeholder="A bit about you! Why you love to cook? what your favourite meal is? ..etc"
                     onChange={this.handleChange}
                   />
                 </div>
-                {this.state.errors.password_confirmation && <small className="help is-danger">{this.state.errors.password_confirmation}</small>}
-              </div>
-              <div className="field">
-                <label className="label">image</label>
-                <div className="control">
-                  <input
-                    className="input"
-                    name="image"
-                    // value={this.
-                    onChange={this.handleChange}
-                  />
-                </div>
-                {this.state.errors.image && <small className="help is-danger">{this.state.errors.image}</small>}
+                {this.state.errors.bio && <small className="help is-danger">{this.state.errors.bio}</small>}
               </div>
               <hr />
               <button className="button">Submit</button>

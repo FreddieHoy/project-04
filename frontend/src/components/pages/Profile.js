@@ -36,20 +36,25 @@ class Profile extends React.Component {
       <section className="section">
         <div className="container">
 
-          <div className="columns">
+          <div className="columns is multiline">
 
-            <div className="column is-quarter image profile-pic">
+            <div className="column is-one-quarter image profile-pic">
               {this.state.profile.image && <img className="is-rounded profile-pic" src={this.state.profile.image} alt={this.state.profile.name}/>}
             </div>
 
-            <div className="column dev-centerthis is-three-quarters">
+            <div className="column dev-centerthis is-half">
 
               <h1>USERNAME: {this.state.profile.username}</h1>
               <h1>EMAIL: {this.state.profile.email}</h1>
               <h1>Number of posts: {this.state.profile.meals.length}</h1>
+              <br />
+              <h1>Bio: <br />{this.state.profile.bio}</h1>
+            </div>
+            <div className="is-one-quarter dev-profile-links">
+              {Auth.isAuthenticated() && <Link to="/meals/new" className="navbar-item">Post a meal</Link>}
+              {Auth.isAuthenticated() && <Link to={`/users/${this.state.profile.id}`} className="navbar-item">Edit Profile</Link>}
             </div>
 
-            {Auth.isAuthenticated() && <Link to="/meals/new" className="navbar-item">Post a meal</Link>}
           </div>
 
           <hr />

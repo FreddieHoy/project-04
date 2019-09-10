@@ -56,6 +56,7 @@ class MealShow extends React.Component {
     axios.delete(`/api/meals/${this.props.match.params.id}/comments/${e.target.id}/`, {
       headers: {Authorization: `Bearer ${Auth.getToken()}`}
     })
+      .then(() => axios.get(`/api/meals/${this.props.match.params.id}/`))
       .then(res => this.setState({ meal: res.data }))
   }
 

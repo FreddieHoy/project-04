@@ -8,6 +8,7 @@ from jwt_auth.models import User
 from .models import Meal, Comment, Cuisine
 from .serializers import MealSerializer, PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer, CommentSerializer, CuisineSerializer
 
+
 class MealListView(APIView):
 
     def get(self, _request):
@@ -111,7 +112,7 @@ class UserListView(APIView):
 
 class UserDetailView(APIView):
 
-    def get_meal(self, pk):
+    def get_user(self, pk):
         try:
             user = User.objects.get(pk=pk)
         except User.DoesNotExist: #if this is an error
@@ -120,7 +121,7 @@ class UserDetailView(APIView):
         return user
 
     def get(self, _request, pk):
-        user = self.get_meal(pk)
+        user = self.get_user(pk)
 
         serializer = PopulatedUserSerializer(user)
         return Response(serializer.data)

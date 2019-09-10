@@ -7,6 +7,7 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import Home from './components/pages/Home'
 import Navbar from './components/common/Navbar'
 import Register from './components/auth/Register'
+// import EditProfile from './components/auth/EditProfile'
 import Login from './components/auth/Login'
 import Profile from './components/pages/Profile'
 import About from './components/pages/About'
@@ -25,6 +26,7 @@ class App extends React.Component {
     // .then(res => console.log(res.data))
   }
 
+  // <Route path="/users/:id" component={EditProfile} />
   render() {
     return (
       <div>
