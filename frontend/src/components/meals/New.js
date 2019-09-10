@@ -20,7 +20,6 @@ class MealNew extends React.Component {
     this.handleArrayChange = this.handleArrayChange.bind(this)
     this.handleCheckbox = this.handleCheckbox.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    // this.handleCuisineTypeChange = this.handleCuisineTypeChange.bind(this)
     this.toggleDropdown = this.toggleDropdown.bind(this)
 
   }
@@ -154,7 +153,6 @@ class MealNew extends React.Component {
                             name="cuisine"
                             onClick={this.handleChange}
                             value={cuisine.id}
-                            toDisplay={cuisine.name}
                           >
                             {cuisine.name}
                           </button>

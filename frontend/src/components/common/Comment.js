@@ -1,15 +1,17 @@
 import React from 'react'
 import Auth from '../../lib/Auth'
 
+import { Link } from 'react-router-dom'
+
 
 const Comment = ({ user, createdAt, content, id, handleCommentDelete}) => {
   return (
 
     <div className="content table tableBorder">
       <div className="box">
-        <div>
+        <Link to={`/users/${user.id}`} >
           {user.username}
-        </div>
+        </Link>
         <div>
           {createdAt}
         </div>

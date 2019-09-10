@@ -53,7 +53,7 @@ class Navbar extends React.Component {
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-start">
               {Auth.isAuthenticated() && <Link to="/newsfeed" className="navbar-item has-text-white">NewsFeed</Link>}
-              {Auth.isAuthenticated() && <Link to="/profile" className="navbar-item has-text-white">Profile</Link>}
+              {Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().sub}`} className="navbar-item has-text-white">Profile</Link>}
             </div>
 
             <div className="navbar-end">

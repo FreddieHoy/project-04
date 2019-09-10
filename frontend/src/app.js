@@ -36,11 +36,11 @@ class App extends React.Component {
             <Route path="/meals/:id/edit" component={MealEdit} />
             <Route path="/meals/new" component={New} />
             <Route path="/meals/:id" component={MealShow} />
+            <Route path="/users/:id" component={Profile} />
             <Route path="/newsfeed" component={Newsfeed} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/about" component={About} />
-            <Route path="/profile" component={Profile} />
             <Route path="/" component={Home} />
 
           </Switch>

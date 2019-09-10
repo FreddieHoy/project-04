@@ -65,9 +65,9 @@ class Profile extends React.Component {
             </div>
             <div className="column is-one-third">
               <div className="image column is-one-third profile-pic">
-                <div className="is-rounded is-pulled-right">
+                <Link to={`/users/${Auth.getPayload().sub}`} className="is-rounded is-pulled-right">
                   {this.state.user.image && <img className="is-rounded is-pulled-right" src={this.state.user.image} alt={this.state.user.username}/>}
-                </div>
+                </Link>
               </div>
               <div className="column dev-card-title">
                 <h2 className="subtitle is-5">{this.state.user.username}</h2>

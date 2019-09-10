@@ -18,7 +18,7 @@ class Profile extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`/api/users/${Auth.getPayload().sub}/`)
+    axios.get(`/api/users/${this.props.match.params.id}/`)
       .then(res => this.setState({ profile: res.data }))
   }
 

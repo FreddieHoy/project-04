@@ -28,7 +28,7 @@ class MealShow extends React.Component {
   componentDidMount() {
     axios.get(`/api/meals/${this.props.match.params.id}/`)
       .then(res => this.setState({ meal: res.data }))
-      // .then(() => console.log(this.state.meal))
+      .then(() => console.log(this.state.meal))
   }
 
   handleChange(e) {
@@ -43,6 +43,7 @@ class MealShow extends React.Component {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then(res => this.setState({ meal: res.data, formData: { content: ''} }))
+
   }
 
   handleDelete(){
@@ -58,6 +59,7 @@ class MealShow extends React.Component {
     })
       .then(() => axios.get(`/api/meals/${this.props.match.params.id}/`))
       .then(res => this.setState({ meal: res.data }))
+
   }
 
   render() {
@@ -79,7 +81,7 @@ class MealShow extends React.Component {
             <hr />
 
             <div className="columns">
-              <div className="image column is-one-third profile-pic">
+              <Link to={`/users/${this.state.meal.user.id}`} className="image column is-one-third profile-pic">
                 <div className="is-rounded dev-show-userpic">
                   {this.state.meal.user.image && <img className="is-rounded dev-show-userpic" src={this.state.meal.user.image} alt={this.state.meal.user.username}/>}
                 </div>
@@ -87,7 +89,7 @@ class MealShow extends React.Component {
                 <div>
                   <p>Username: {this.state.meal.user.username}</p>
                 </div>
-              </div>
+              </Link>
 
               <div className="column is-two-thirds">
                 <p>{this.state.meal.name}</p>
