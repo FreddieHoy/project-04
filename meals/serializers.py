@@ -8,7 +8,7 @@ class MealSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Meal
-        fields = ('id', 'name', 'image', 'description', 'cuisine', 'user', 'comments', 'created_at',)
+        fields = ('id', 'name', 'image', 'description', 'cuisine', 'user',)
 
 
 class CuisineSerializer(serializers.ModelSerializer):
@@ -34,6 +34,9 @@ class PopulatedMealSerializer(MealSerializer):
     comments = PopulatedCommentSerializer(many=True)
     user = UserSerializer()
     cuisine = CuisineSerializer()
+
+    class Meta(MealSerializer.Meta):
+        fields = '__all__'
 
 
 class PopulatedUserSerializer(UserSerializer):

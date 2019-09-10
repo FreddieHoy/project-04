@@ -6,7 +6,7 @@ from django.http import Http404
 from jwt_auth.models import User
 
 from .models import Meal, Comment, Cuisine
-from .serializers import PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer, CommentSerializer, CuisineSerializer
+from .serializers import MealSerializer, PopulatedMealSerializer, PopulatedUserSerializer, PopulatedCommentSerializer, CommentSerializer, CuisineSerializer
 
 class MealListView(APIView):
 
@@ -17,7 +17,7 @@ class MealListView(APIView):
 
 
     def post(self, request):
-        serializer = PopulatedMealSerializer(data=request.data)
+        serializer = MealSerializer(data=request.data)
         if serializer.is_valid():
             # automatically sets the user to be the logged in user
             serializer.save(user=request.user)
@@ -45,7 +45,7 @@ class MealDetailView(APIView):
     def put(self, request, pk):
         meal = self.get_meal(pk)
 
-        serializer = PopulatedMealSerializer(meal, data=request.data)
+        serializer = MealSerializer(meal, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=201)

@@ -10,19 +10,17 @@ class MealNew extends React.Component {
     super()
     this.state = {
       cuisines: [],
-      formData: {
-        created_at: new Date(),
-        cuisine: {}
-      },
+      formData: {},
       dropdownOpen: false,
-      errors: {}
+      errors: {},
+      displayCuisineName: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleArrayChange = this.handleArrayChange.bind(this)
     this.handleCheckbox = this.handleCheckbox.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.handleCuisineTypeChange = this.handleCuisineTypeChange.bind(this)
+    // this.handleCuisineTypeChange = this.handleCuisineTypeChange.bind(this)
     this.toggleDropdown = this.toggleDropdown.bind(this)
 
   }
@@ -30,7 +28,7 @@ class MealNew extends React.Component {
   componentDidMount() {
     axios.get('/api/cuisines/')
       .then(res => this.setState({ cuisines: res.data }))
-      .then(() => console.log(this.state.cuisines))
+      .then(() => console.log(this.state))
   }
 
   handleSubmit(e) {
@@ -39,16 +37,20 @@ class MealNew extends React.Component {
     axios.post('/api/meals/', this.state.formData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
-      .then((res) => this.props.history.push(`/meals/${res.data._id}/`))
+      .then((res) => this.props.history.push(`/meals/${res.data.id}/`))
       .catch(err => this.setState({ errors: err.response.data }))
 
   }
 
   handleChange(e) {
+    let displayCuisineName = ''
+    if (e.target.name === 'cuisine') {
+      displayCuisineName = (this.state.cuisines.find(cuisine => cuisine.id === +e.target.value)).name
+    }
     const formData = { ...this.state.formData, [e.target.name]: e.target.value }
-    this.setState({ formData })
-    console.log(this.state.formData)
+    this.setState({ formData, displayCuisineName })
   }
+
 
   handleArrayChange(e) {
     const formData = { ...this.state.formData, [e.target.name]: e.target.value.split(',') }
@@ -62,18 +64,6 @@ class MealNew extends React.Component {
 
   toggleDropdown() {
     this.setState({ dropdownOpen: !this.state.dropdownOpen})
-  }
-
-  handleCuisineTypeChange(e) {
-    const chosenCuisineObject = JSON.stringify(this.state.cuisines.filter(cuisine => cuisine.id === e.target.value))
-    
-    console.log(chosenCuisineObject)
-
-    const formData = {...this.state.formData, cuisine: chosenCuisineObject }
-    console.log(e.target.value)
-    this.setState({ formData, dropdownOpen: false })
-    console.log(this.state.formData)
-
   }
 
   handleUploadImages(result) {
@@ -100,7 +90,7 @@ class MealNew extends React.Component {
                 <hr />
                 <ReactFilestack
                   mode="transform"
-                  apikey={'AuJmPwiDASVidlT638bKCz'}
+                  apikey={process.env.YOUR_API_KEY}
                   buttonText="Upload Photo"
                   buttonClass="button"
                   className="upload-image"
@@ -147,7 +137,7 @@ class MealNew extends React.Component {
                   <div className={`dropdown ${this.state.dropdownOpen ? 'is-active' : ''}`} onClick={this.toggleDropdown}>
                     <div className="dropdown-trigger">
                       <button type="button" className="button" aria-haspopup="true" aria-controls="dropdown-menu">
-                        <span>↓: choose</span>
+                        <span>↓: {this.state.displayCuisineName}</span>
                         <span className="icon is-small">
                           <i className="fas fa-angle-down" aria-hidden="true"></i>
                         </span>
@@ -161,8 +151,10 @@ class MealNew extends React.Component {
                             key={cuisine.id}
                             className="dropdown-item"
                             type="button"
-                            onClick={this.handleCuisineTypeChange}
+                            name="cuisine"
+                            onClick={this.handleChange}
                             value={cuisine.id}
+                            toDisplay={cuisine.name}
                           >
                             {cuisine.name}
                           </button>

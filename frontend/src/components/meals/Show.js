@@ -126,7 +126,6 @@ class MealShow extends React.Component {
                         <tr>
                           <td>
                             <div className="field">
-                              <label className="label"><h3 className="commentUser">Comment</h3></label>
                               <textarea
                                 name="content"
                                 className="textarea"

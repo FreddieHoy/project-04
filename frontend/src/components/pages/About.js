@@ -7,21 +7,15 @@ const About = () => {
     <section className="section about-background">
       <div className="container">
         <div className="box">
-          <h2 className="subtitle is-3 has-text-centered has-white-text">What we do!</h2>
+          <h2 className="title is-3 has-text-centered has-white-text">What we do!</h2>
+          <hr />
           <p>This site is for all those foodies out there. Who are passionate about cooking! A place to share dishes, recipes, ideas, cuisines and goodtimes!
             <br />
             <br />
-
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          Share what you have made for dinner, for family sunday lunch, for your post work out gains or for your midnight guilty indulgence! Comment on others posts, see their recepies and enjoy!</p>
         </div>
-
-
-
         <div className="box">
-          <div className="">
-            <h2 className="title is-3 has-white-text">About the Site</h2>
-
-          </div>
+          <h2 className="subtitle is-3 has-white-text">About the Site</h2>
           <hr />
           <div className="columns">
             <div className="column">
@@ -33,11 +27,7 @@ const About = () => {
               <h2>Acknowledgements:</h2>
               <br />
               <ul>Background images - Unsplash artists:
-                <li>• Organic carrots - Harshal S. Hirve</li>
-                <li>• Plant box - Markus Spiske</li>
-                <li>• Tomatos, Onions & Potatos - Lars Blankers</li>
-                <li>• Market Greens - Lou Liebau</li>
-                <li>• Apples - Akshay Nanavati</li>
+                <li>• Home page - Kitchen - Mikael Cho</li>
               </ul>
               <p>Icons made by smalllikeart from www.flaticon.com</p>
               <p>Smiling Carrot from www.vegetableislands.com</p>
