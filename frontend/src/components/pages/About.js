@@ -7,7 +7,7 @@ const About = () => {
     <section className="section about-background">
       <div className="container">
         <div className="box">
-          <h2 className="title is-3 has-text-centered has-white-text">What we do!</h2>
+          <h2 className="title is-3 has-text-centered">What we do!</h2>
           <hr />
           <div className="columns">
             <div className="column">
@@ -22,7 +22,7 @@ const About = () => {
 
         </div>
         <div className="box">
-          <h2 className="subtitle is-3 has-white-text">About the Site</h2>
+          <h2 className="title is-3 has-text-centered">About the Site</h2>
           <hr />
           <div className="columns">
             <div className="column">
@@ -55,7 +55,7 @@ const About = () => {
                 </div>
                 <div className="card-content">
                   <span className="notes"><a href="https://github.com/FreddieHoy" target="_blank" rel="noopener noreferrer"> <i className="fab fa-github-square"></i></a></span>
-                  <span className="notes"><a href="https://www.linkedin.com/in/freddie-hoy-192807168/" target="_blank" rel="noopener noreferrer"> <i className="fab fa-linkedin-in"></i></a></span>
+                  <span className="notes"><a href="https://www.linkedin.com/in/freddie-hoy-192807168/" target="_blank" rel="noopener noreferrer"> <i className="fab fa-linkedin-in"></i></a></span> ← Links
                 </div>
               </div>
             </div>

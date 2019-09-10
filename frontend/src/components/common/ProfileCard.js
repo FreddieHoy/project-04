@@ -5,14 +5,13 @@ import React from 'react'
 
 const Card = (props) => {
   return (
-    <div>
-      <div className="card-image dev-card-div-sizing">
-        <img className="dev-card-image-sizing overlay"  src={props.image} alt={props.name} />
+    <div className="">
+      <div className="card-image dev-profile-card-div-sizing">
+        <img className="dev-profile-card-image-sizing " src={props.image} alt={props.name} />
       </div>
-      {props.ishovering && <div>
-        <div className="has-text-centered">{props.name}</div>
-      </div>}
-      <hr />
+      <div className="">
+        <div className="has-text-centered dev-vertical-center-text">{props.name}</div>
+      </div>
     </div>
   )
 }

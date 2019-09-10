@@ -58,9 +58,9 @@ class Profile extends React.Component {
           </div>
 
           <hr />
-          <div className="container columns is-multiline">
+          <div className="dev-meals-container">
             {this.state.profile.meals && this.state.profile.meals.map(meal =>
-              <div className="column is-half-desktop" key={meal.id}>
+              <div className="dev-make-fifty" key={meal.id}>
                 <Link to={`/meals/${meal.id}`}>
                   <ProfileCard
                     image={meal.image}
