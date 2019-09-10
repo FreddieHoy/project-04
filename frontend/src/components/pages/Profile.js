@@ -13,20 +13,11 @@ class Profile extends React.Component {
     this.state = {
       isHovering: {}
     }
-
-    this.handleMouseHover = this.handleMouseHover.bind(this)
   }
 
   componentDidMount() {
     axios.get(`/api/users/${this.props.match.params.id}/`)
       .then(res => this.setState({ profile: res.data }))
-  }
-
-
-  handleMouseHover(e) {
-    if (e.target) {
-      this.setState({ isHovering: !this.state.isHovering })
-    }
   }
 
 
@@ -47,12 +38,12 @@ class Profile extends React.Component {
               <h1>USERNAME: {this.state.profile.username}</h1>
               <h1>EMAIL: {this.state.profile.email}</h1>
               <h1>Number of posts: {this.state.profile.meals.length}</h1>
-              <br />
+              <hr />
               <h1>Bio: <br />{this.state.profile.bio}</h1>
             </div>
             <div className="is-one-quarter dev-profile-links">
               {Auth.isAuthenticated() && <Link to="/meals/new" className="navbar-item">Post a meal</Link>}
-              {Auth.isAuthenticated() && <Link to={`/users/${this.state.profile.id}`} className="navbar-item">Edit Profile</Link>}
+              {Auth.isAuthenticated() && <Link to={`/users/${this.state.profile.id}/edit`} className="navbar-item">Edit Profile</Link>}
             </div>
 
           </div>

@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from jwt_auth.serializers import UserSerializer
 from .models import Meal, Cuisine, Comment
+from jwt_auth.models import User
 
 class MealSerializer(serializers.ModelSerializer):
 
@@ -42,3 +43,9 @@ class PopulatedMealSerializer(MealSerializer):
 class PopulatedUserSerializer(UserSerializer):
 
     meals = MealSerializer(many=True)
+
+class EditUserSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'name', 'image', 'bio',)

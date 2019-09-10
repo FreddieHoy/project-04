@@ -33,10 +33,10 @@ class EditProfile extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
 
-    axios.put(`api/users/${this.props.match.params.id}/`, this.state.formData, {
+    axios.put(`api/users/${Auth.getPayload().sub}/`, this.state.formData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
-      .then(() => this.props.history.push('/profile/'))
+      .then(() => this.props.history.push(`/users/${Auth.getPayload().sub}`))
       .catch(err => this.setState({ errors: err.response.data }))
   }
 
