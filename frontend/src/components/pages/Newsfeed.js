@@ -43,7 +43,7 @@ class Profile extends React.Component {
 
             <Link className="column" to={`/users/${Auth.getPayload().sub}`}>
               <div className="columns">
-                <div className="column">
+                <div className="column dev-news-logged-in">
                   <h2 className="subtitle is-5 dev-newsfeed-title is-pulled-right">Logged in: {this.state.user.username}</h2>
                 </div>
 
