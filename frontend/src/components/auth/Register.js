@@ -32,7 +32,6 @@ class Register extends React.Component {
     axios.post('/api/register/', this.state.formData)
       .then(res => {
         console.log(res)
-        // toast.success(res.data.message)
         this.props.history.push('/login/')
       })
       .catch(err => this.setState({ errors: err.response.data }))
@@ -49,7 +48,7 @@ class Register extends React.Component {
         <div className="container">
           <div className="box tableBorder">
             <h2 className="title is-3 has-white-text">Register</h2>
-            <p>We are going to share meals bruv</p>
+            <p>Welcome!</p>
           </div>
           <div className="box tableBorder">
             <form onSubmit={this.handleSubmit}>
@@ -57,9 +56,9 @@ class Register extends React.Component {
                 <label className="label">Username</label>
                 <div className="control">
                   <input
-                    className="input"
+                    className="input is-rounded"
                     name="username"
-                    placeholder="eg: greenfingers"
+                    placeholder="eg: Chef Dave"
                     onChange={this.handleChange}
                   />
                 </div>
@@ -69,10 +68,10 @@ class Register extends React.Component {
                 <label className="label">Email</label>
                 <div className="control">
                   <input
-                    className="input"
+                    className="input is-rounded"
                     type="email"
                     name="email"
-                    placeholder="eg: greeny@gardensaremylife.co.uk"
+                    placeholder="eg: cook@yeschef.co"
                     onChange={this.handleChange}
                   />
                 </div>
@@ -82,7 +81,7 @@ class Register extends React.Component {
                 <label className="label">Password</label>
                 <div className="control">
                   <input
-                    className="input"
+                    className="input is-rounded"
                     type="password"
                     name="password"
                     placeholder="eg: ••••••••"
@@ -95,7 +94,7 @@ class Register extends React.Component {
                 <label className="label">Password Confirmation</label>
                 <div className="control">
                   <input
-                    className="input"
+                    className="input is-rounded"
                     type="password"
                     name="password_confirmation"
                     placeholder="eg: ••••••••"
@@ -112,7 +111,7 @@ class Register extends React.Component {
                   apikey={process.env.YOUR_API_KEY}
                   buttonText="Upload Photo"
                   buttonClass="button"
-                  className="upload-image"
+                  className="upload-image is-rounded"
                   onSuccess={(result) => this.handleUploadImages(result)}
                   preload={true}
                 />
@@ -129,7 +128,7 @@ class Register extends React.Component {
                 <label className="label">Bio</label>
                 <div className="control">
                   <input
-                    className="textarea"
+                    className="textarea is-rounded"
                     name="bio"
                     placeholder="A bit about you! Why you love to cook? what your favourite meal is? ..etc"
                     onChange={this.handleChange}
@@ -138,7 +137,7 @@ class Register extends React.Component {
                 {this.state.errors.bio && <small className="help is-danger">{this.state.errors.bio}</small>}
               </div>
               <hr />
-              <button className="button">Submit</button>
+              <button className="button is-rounded">Submit</button>
               <br />
               <br />
               <div>Already registered? Login in Here:

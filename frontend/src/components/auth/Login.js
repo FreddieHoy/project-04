@@ -27,12 +27,12 @@ class Login extends React.Component {
       .then(res => {
         console.log(res.data)
         Auth.setUser(res.data.user)
-        Auth.setToken(res.data.token) // store the token in localStorage
-        this.props.history.push('/') // redirect to the cheeses INDEX page
+        Auth.setToken(res.data.token)
+        this.props.history.push('/')
       })
       .catch(() => {
-        Auth.removeToken() // remove the token from localStorage
-        this.setState({ error: 'Invalid credentials' }) // display an error
+        Auth.removeToken()
+        this.setState({ error: 'Invalid credentials' })
       })
   }
 
@@ -52,7 +52,7 @@ class Login extends React.Component {
                     className="input"
                     type="email"
                     name="email"
-                    placeholder="eg: greeny@gardensaremylife.co.uk"
+                    placeholder="eg: cook@yeschef.co"
                     onChange={this.handleChange}
                   />
                 </div>
