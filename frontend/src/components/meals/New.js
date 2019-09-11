@@ -15,13 +15,11 @@ class MealNew extends React.Component {
       errors: {},
       displayCuisineName: ''
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleArrayChange = this.handleArrayChange.bind(this)
     this.handleCheckbox = this.handleCheckbox.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.toggleDropdown = this.toggleDropdown.bind(this)
-
   }
 
   componentDidMount() {
@@ -32,13 +30,11 @@ class MealNew extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-
     axios.post('/api/meals/', this.state.formData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })
       .then((res) => this.props.history.push(`/meals/${res.data.id}/`))
       .catch(err => this.setState({ errors: err.response.data }))
-
   }
 
   handleChange(e) {
@@ -70,9 +66,7 @@ class MealNew extends React.Component {
     this.setState({ formData })
   }
 
-
   render() {
-
     if(!this.state.cuisines) return <h2 className="title is-2">Loading ...</h2>
     return (
       <section className="section add-background">
@@ -80,10 +74,8 @@ class MealNew extends React.Component {
           <div className="box tableBorder">
             <h2 className="title is-3 has-text-centered">Add a Meal</h2>
           </div>
-
           <form className="container box" onSubmit={this.handleSubmit}>
             <div className="field columns">
-
               <div className="column is-half">
                 <h1 className="is-size-2 has-text-centered">Upload Image</h1>
                 <hr />
@@ -103,9 +95,7 @@ class MealNew extends React.Component {
                   {this.state.formData.image && <img src={this.state.formData.image} />}
                 </div>
               </div>
-
               <div className="column is-half">
-
                 <h1 className="is-size-2 has-text-centered">Info</h1>
                 <hr />
                 <label className="label has-white-text">Name</label>
@@ -144,7 +134,6 @@ class MealNew extends React.Component {
                     </div>
                     <div className="dropdown-menu" id="dropdown-menu" role="menu">
                       <div className="dropdown-content">
-
                         {this.state.cuisines.map(cuisine =>
                           <button
                             key={cuisine.id}
@@ -157,10 +146,8 @@ class MealNew extends React.Component {
                             {cuisine.name}
                           </button>
                         )}
-
                         <button type="button" className="dropdown-item" onClick={this.handlePlotTypeChange} value='Allotment'>Allotment</button>
                       </div>
-
                     </div>
                     {this.state.errors.cuisine && <small className="help is-danger">{this.state.errors.cuisine}</small>}
                   </div>

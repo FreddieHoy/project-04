@@ -15,7 +15,6 @@ class Register extends React.Component {
       },
       errors: {}
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -143,7 +142,7 @@ class Register extends React.Component {
               <br />
               <br />
               <div>Already registered? Login in Here:
-                <Link to="/login" className="">Login</Link>
+                <Link to="/login">Login</Link>
               </div>
             </form>
           </div>

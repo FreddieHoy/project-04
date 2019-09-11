@@ -1,14 +1,11 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
-
 import Auth from '../../lib/Auth'
-// import image from '../../assets/logo.png'
 
 class Navbar extends React.Component {
 
   constructor() {
     super()
-
     this.state = {
       navbarOpen: false
     }
@@ -49,13 +46,11 @@ class Navbar extends React.Component {
               <span aria-hidden="true"></span>
             </a>
           </div>
-
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''} is-black`} id='dev-forceBackground'>
             <div className="navbar-start">
               {Auth.isAuthenticated() && <Link to="/newsfeed" className="navbar-item has-text-white">NewsFeed</Link>}
               {Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().sub}`} className="navbar-item has-text-white">My Profile</Link>}
             </div>
-
             <div className="navbar-end">
               {!Auth.isAuthenticated() && <Link to="/register" className="navbar-item has-text-white">Register</Link>}
               {!Auth.isAuthenticated() && <Link to="/login" className="navbar-item has-text-white">Login</Link>}

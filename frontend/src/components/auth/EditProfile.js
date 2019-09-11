@@ -6,14 +6,12 @@ import Auth from '../../lib/Auth'
 import ReactFilestack from 'filestack-react'
 
 class EditProfile extends React.Component {
-
   constructor() {
     super()
     this.state = {
       formData: Auth.getUser(),
       errors: {}
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -32,7 +30,6 @@ class EditProfile extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-
     axios.put(`api/users/${Auth.getPayload().sub}/`, this.state.formData, {
       headers: { Authorization: `Bearer ${Auth.getToken()}`}
     })

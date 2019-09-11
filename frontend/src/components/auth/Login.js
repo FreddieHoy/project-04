@@ -12,7 +12,6 @@ class Login extends React.Component {
       formData: {},
       error: ''
     }
-
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
@@ -24,7 +23,6 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-
     axios.post('/api/login/', this.state.formData)
       .then(res => {
         console.log(res.data)
@@ -36,7 +34,6 @@ class Login extends React.Component {
         Auth.removeToken() // remove the token from localStorage
         this.setState({ error: 'Invalid credentials' }) // display an error
       })
-
   }
 
   render() {
@@ -78,7 +75,7 @@ class Login extends React.Component {
               <br />
               <br />
               <div>Already registered? Login in Here:
-                <Link to="/register" className="">Register</Link>
+                <Link to="/register">Register</Link>
               </div>
             </div>
           </form>

@@ -4,7 +4,7 @@
   "pk": 4,
   "fields": {
     "password": "pbkdf2_sha256$150000$DxyOZqf0qPiu$MZ7VdsUtCLqn5RVBxjk2GX098/IgreicTsJeefTqWEQ=",
-    "last_login": "2019-09-06T16:41:47.724Z",
+    "last_login": "2019-09-09T09:48:29.956Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",
@@ -13,7 +13,9 @@
     "is_staff": true,
     "is_active": true,
     "date_joined": "2019-09-06T10:09:58.390Z",
+    "name": "",
     "image": "",
+    "bio": "",
     "groups": [],
     "user_permissions": []
   }
@@ -32,7 +34,9 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2019-09-06T10:13:48Z",
+    "name": "Jeff Smith",
     "image": "http://www.gstatic.com/tv/thumb/persons/532529/532529_v9_bb.jpg",
+    "bio": "I live in London as a banker, I cook when I am stressed to help me forget about work!",
     "groups": [],
     "user_permissions": []
   }
@@ -51,7 +55,9 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2019-09-06T14:38:32Z",
+    "name": "Daniel Jamerson",
     "image": "https://www.tglaw.com.au/wp-content/uploads/2011/04/James-Daniel-924x1024.jpg",
+    "bio": "I am an accountant, I love to cook! Me and my mother cook every Sunday! I am fat and Happy and I am going to go home and give my mum a fat hug!",
     "groups": [],
     "user_permissions": []
   }
@@ -70,7 +76,72 @@
     "is_staff": false,
     "is_active": true,
     "date_joined": "2019-09-06T16:51:01Z",
+    "name": "Susie Dunn",
     "image": "https://www.inspiringscotland.org.uk/wp-content/uploads/2017/04/susie-smiling.jpg",
+    "bio": "I'm a software developer at Google. I also have four kids who I cook for everyday!",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$zzI3fwM6BFBd$tQZIb5yDImPy+o4bR8TVwFjoYEl8I0aWVa+chJGTtwg=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "fred",
+    "first_name": "",
+    "last_name": "",
+    "email": "freddiehoy@hotmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-09-09T15:12:05.988Z",
+    "name": "",
+    "image": "https://www.deliciousmagazine.co.uk/wp-content/uploads/2019/03/toastie-768x960.jpg",
+    "bio": "",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 15,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$4prhODo2ciEI$2TBQb+J7jVFhjXMcJAHWYAo/XVPzPY0qdceCIiR920w=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "gary",
+    "first_name": "",
+    "last_name": "",
+    "email": "gary@gary.Gary",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-09-10T12:38:52.039Z",
+    "name": "",
+    "image": "https://cdn.filestackcontent.com/dkjyXRAnQ0ai1h9Ja0KI",
+    "bio": "I look to cook baby!!!!!!!!!!!",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$MuVsY087cmNC$+GpRrk4sDlcroJtQVIYCkoKBV913chTW4eHGo9PBVYQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Karen-Rice30",
+    "first_name": "",
+    "last_name": "",
+    "email": "karen@ga.co",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-09-11T13:58:43Z",
+    "name": "Karen",
+    "image": "https://www.karen-white.com/wp-content/uploads/author-photo-home.jpg",
+    "bio": "I am lawyer, mum of 2 and a passionate cook for exotic foods",
     "groups": [],
     "user_permissions": []
   }

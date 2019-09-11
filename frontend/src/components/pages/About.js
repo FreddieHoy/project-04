@@ -19,7 +19,6 @@ const About = () => {
               <img src={WomanChopping} alt='Woman Chopping' />
             </div>
           </div>
-
         </div>
         <div className="box">
           <h2 className="title is-3 has-text-centered">About the Site</h2>
@@ -27,10 +26,7 @@ const About = () => {
           <div className="columns">
             <div className="column">
               <h2 className="subtitle is-5 has-white-text">Developer</h2>
-              <p>This site has been developed by Freddie Hoy, as part of the General Assembly Software Engineering Immersive Course.
-                <br />
-                <br />
-              JavaScript & React was used for the front end. Python & Django was used for the backend. </p>
+              <p>This site has been developed by Freddie Hoy. This project is the final project based as part of the General Assembly Software Engineering Immersive Course.<br /><br /> Node.js & React was used for the front end. Python & Django was used for the backend. </p>
               <hr />
               <h2>Acknowledgements:</h2>
               <br />
@@ -41,9 +37,6 @@ const About = () => {
               </ul>
             </div>
             <div className="column">
-
-
-
               <div className="card">
                 <div className="card-header">
                   <div className="card-header-title">Freddie Hoy</div>
@@ -62,7 +55,6 @@ const About = () => {
           </div>
         </div>
       </div>
-
     </section>
   )
 }

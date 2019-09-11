@@ -6,7 +6,7 @@ class Footer extends React.Component {
       <footer>
         <div className="has-text-centered is-half">
           <br />
-          <div className="">
+          <div>
             <a target="_blank" rel="noopener noreferrer" href="https://www.yesChef.com" className="fab fa-3x fa-twitter-square"></a>
             <a target="_blank" rel="noopener noreferrer" href="https://www.yesChef.com" className="fab fa-3x fa-facebook-square"></a>
           </div>

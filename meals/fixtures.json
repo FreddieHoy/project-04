@@ -42,6 +42,62 @@
   }
 },
 {
+  "model": "meals.cuisine",
+  "pk": 20,
+  "fields": {
+    "name": "Greek"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 21,
+  "fields": {
+    "name": "Portuguese"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 22,
+  "fields": {
+    "name": "American"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 23,
+  "fields": {
+    "name": "Mexican"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 24,
+  "fields": {
+    "name": "Moroccan"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 25,
+  "fields": {
+    "name": "Swedish"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 26,
+  "fields": {
+    "name": "Chinese"
+  }
+},
+{
+  "model": "meals.cuisine",
+  "pk": 27,
+  "fields": {
+    "name": "Indonesian"
+  }
+},
+{
   "model": "meals.meal",
   "pk": 2,
   "fields": {
@@ -59,7 +115,7 @@
   "fields": {
     "name": "Pesto Pasta",
     "description": "I grew up eating this, really brings back memories of hanging out with my friends!",
-    "image": "https://www.gimmesomeoven.com/wp-content/uploads/2013/06/Arugula-Pesto-Pasta-1.jpg",
+    "image": "http://www.threeolivesbranch.com/wp-content/uploads/2017/10/IMG_7189.jpg",
     "cuisine": 15,
     "user": 10,
     "created_at": "2019-09-09T09:55:46.166Z"
@@ -126,6 +182,210 @@
   }
 },
 {
+  "model": "meals.meal",
+  "pk": 14,
+  "fields": {
+    "name": "Mums famous Spagetti and Meatballs",
+    "description": "This is a truly the foundation of my Italian up bringing",
+    "image": "https://cdn.filestackcontent.com/qXxfDCiDQUCGpCSaT9uu",
+    "cuisine": 15,
+    "user": 10,
+    "created_at": "2019-09-10T10:34:02.742Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 15,
+  "fields": {
+    "name": "Shepards pie",
+    "description": "Growing up, my family had a tradition of big Sunday dinners. Nearly every Sunday we\u2019d go to our grandparents house for some kind of pot roast or ground beef dish, mashed potatoes, and lots of sides. Whenever it was my parent\u2019s turn to make the roast and potatoes, they\u2019d make extra which my mom would refashion into a shepherd\u2019s pie for Monday night dinner. It was one of the most frequent meals we had growing up and luckily, everyone loved it!",
+    "image": "https://www.thewholesomedish.com/wp-content/uploads/2019/02/The-Best-Classic-Shepherds-Pie-550.jpg",
+    "cuisine": 14,
+    "user": 10,
+    "created_at": "2019-09-11T11:14:43.260Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 16,
+  "fields": {
+    "name": "Home-made Scotch eggs",
+    "description": "he scotch egg needs no introduction \u2013 their English origins (they were created by Fortnum & Mason of Piccadilly in 1738), metropolitan modishness and comedy potential having already been thoroughly chewed over, digested, and the crumbs left out for the wasps on these pages. It's got to the point where one can judge a pub's level of culinary ambition by its attitude to scotch eggs.",
+    "image": "https://d1doqjmisr497k.cloudfront.net/-/media/mccormick-us/recipes/mccormick/s/800/scotch-eggs.jpg",
+    "cuisine": 14,
+    "user": 5,
+    "created_at": "2019-09-11T11:16:39.770Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 17,
+  "fields": {
+    "name": "Fish & Chips",
+    "description": "Fish and chips is a hot dish consisting of fried fish in batter served with chips. The dish originated in England and is an example of culinary fusion of its two main ingredients, each brought by immigrants. It is a staple meal and a common take-away food in the United Kingdom, Ireland, and numerous other countries, particularly in English-speaking and Commonwealth nations. Fish and chips first appeared in the UK in the 1860s. By 1910 there were more than 25,000 fish and chip shops across the UK, and by the 1930s there were over 35,000, falling to about 10,000 by 2009.",
+    "image": "http://www.delonghi.com/Global/recipes/multifry/173.jpg",
+    "cuisine": 14,
+    "user": 11,
+    "created_at": "2019-09-11T11:23:08.534Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 18,
+  "fields": {
+    "name": "Greek Salad",
+    "description": "Greek salad or horiatiki salad is a salad in Greek cuisine. Greek salad is made with pieces of tomatoes, sliced cucumbers, onion, feta cheese, and olives, typically seasoned with salt and Greek mountain oregano, and dressed with olive oil. Common additions include green bell pepper slices or caper berries.",
+    "image": "https://natashaskitchen.com/wp-content/uploads/2019/02/Greek-Salad-500x375.jpg",
+    "cuisine": 20,
+    "user": 10,
+    "created_at": "2019-09-11T11:24:58.315Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 19,
+  "fields": {
+    "name": "Spicy Chicken & Rice",
+    "description": "This dish was actually invented in the 1940s in Macau, a former Portuguese colony. No one knows for sure why it was named African Chicken, since the chef who originally created it passed away about 30 years later, but it is a possible nod to Portugal's Moorish history. The marinade is very similar to that for Frango Grehaldo (Portuguese grilled chicken), but the idea of using coconut milk for the basting sauce probably came from Goa, another former Portuguese colony.",
+    "image": "https://www.primaverakitchen.com/wp-content/uploads/2018/12/Spicy-Chicken-with-Cauliflower-Rice-Primavera-Kitchen-5.jpg",
+    "cuisine": 21,
+    "user": 5,
+    "created_at": "2019-09-11T11:29:21.258Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 20,
+  "fields": {
+    "name": "Macaroni Cheese",
+    "description": "Traditional macaroni and cheese is a casserole baked in the oven; however, it may be prepared in a sauce pan on top of the stove or using a packaged mix. The cheese is often first incorporated into a B\u00e9chamel sauce to create a Mornay sauce, which is then added to the pasta. In the United States, it is considered a comfort food.",
+    "image": "https://img.taste.com.au/dFpfBCfV/taste/2016/11/best-ever-macaroni-cheese-77214-1.jpeg",
+    "cuisine": 22,
+    "user": 11,
+    "created_at": "2019-09-11T12:44:04.519Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 21,
+  "fields": {
+    "name": "Apple Crumble",
+    "description": "A crumble is a dish that can be made in a sweet or savoury version, although the sweet version is much more common. A sweet variety usually contains stewed fruit topped with a crumbly mixture of fat (usually butter), flour, and sugar. A savoury version uses meat, vegetables and sauce for the filling, with cheese replacing sugar in the crumble mix. The crumble is baked in an oven until the topping is crisp. The dessert variety is often served with ice cream, cream, or custard.",
+    "image": "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/applecrumble_2971_16x9.jpg",
+    "cuisine": 14,
+    "user": 11,
+    "created_at": "2019-09-11T12:46:16.110Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 22,
+  "fields": {
+    "name": "Fajita",
+    "description": "The secret to a really good fajitas is fantastic hot sauce! Well and lots of cheese but that goes without saying really. Also I went to Mexico once and the food was great! A fajita in Tex-Mex and Mexican cuisine is any grilled meat that is served as a taco on a flour or corn tortilla. The term originally referred to skirt steak, the cut of beef first used in the dish. Popular meats today also include chicken and other cuts of beef, as well as vegetables instead of meat.",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Flickr_elisart_324248450--Beef_and_chicken_fajitas.jpg",
+    "cuisine": 23,
+    "user": 11,
+    "created_at": "2019-09-11T13:45:59.981Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 23,
+  "fields": {
+    "name": "Lamb Tagine",
+    "description": "A tajine or tagine is a Maghrebi dish which is named after the earthenware pot in which it is cooked. It is also called maraq or marqa.",
+    "image": "https://realfood.tesco.com/media/images/RFO-1400x919-Tagine-724d7e31-fe78-4182-846f-04165d6df9d0-0-1400x919.jpg",
+    "cuisine": 24,
+    "user": 16,
+    "created_at": "2019-09-11T14:02:55.136Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 24,
+  "fields": {
+    "name": "Classic Swedish Meatballs",
+    "description": "Swedish meatballs are traditionally served with gravy, boiled potatoes, lingonberry jam, and sometimes pickled cucumber. Traditionally, they are small, around 2\u20133 centimetres in diameter although larger meatballs are often served at restaurants. In 2018 a Swedish Twitter account claimed that what we know as Swedish meatballs are based on a Turkish recipe.This statement has later been debunked by Swedish ethnologists.",
+    "image": "https://cdn3.tmbi.com/toh/GoogleImages/Mom-s-Swedish-Meatballs_exps162674_TH2379807A10_31_6b_RMS.jpg",
+    "cuisine": 25,
+    "user": 16,
+    "created_at": "2019-09-11T14:06:22.904Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 25,
+  "fields": {
+    "name": "Kung Pao Chicken",
+    "description": "Kung Pao chicken, also transcribed as Gong Bao or Kung Po, is a spicy, stir-fried Chinese dish made with chicken, peanuts, vegetables, and chili peppers. The classic dish in Sichuan cuisine originated",
+    "image": "https://www.jessicagavin.com/wp-content/uploads/2019/01/kung-pao-chicken-5-1200.jpg",
+    "cuisine": 26,
+    "user": 16,
+    "created_at": "2019-09-11T14:08:22.774Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 26,
+  "fields": {
+    "name": "Wonton Soup",
+    "description": "A wonton is a type of Chinese dumpling commonly found across regional styles of Chinese cuisine.",
+    "image": "https://www.recipetineats.com/wp-content/uploads/2016/09/Wontons_4.jpg",
+    "cuisine": 26,
+    "user": 16,
+    "created_at": "2019-09-11T14:09:32.932Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 27,
+  "fields": {
+    "name": "Home made Pizza",
+    "description": "Pizza is a savory dish of Italian origin, consisting of a usually round, flattened base of leavened wheat-based dough topped with tomatoes, cheese, and various other ingredients baked at a high temperature, traditionally in a wood-fired oven.",
+    "image": "https://www.abeautifulplate.com/wp-content/uploads/2015/08/the-best-homemade-margherita-pizza-1-4.jpg",
+    "cuisine": 15,
+    "user": 16,
+    "created_at": "2019-09-11T14:10:42.838Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 28,
+  "fields": {
+    "name": "philly cheesesteak",
+    "description": "A cheesesteak is a sandwich made from thinly sliced pieces of beefsteak and melted cheese in a long hoagie roll. A popular regional fast food, it has its roots in the U.S. city of Philadelphia, Pennsylvania.",
+    "image": "https://www.culinaryhill.com/wp-content/uploads/2018/01/Philly-Cheese-Steak-Culinary-Hill-square.jpg",
+    "cuisine": 22,
+    "user": 16,
+    "created_at": "2019-09-11T14:11:58.150Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 29,
+  "fields": {
+    "name": "Nasi Goreng",
+    "description": "Nasi goreng, literally meaning \"fried rice\" in both the Malay and Indonesian languages, is an Indonesian rice dish with pieces of meat and vegetables added.",
+    "image": "https://www.seriouseats.com/2019/06/20190604-nasi-goreng-fried-rice-vicky-wasik-7-1500x1125.jpg",
+    "cuisine": 27,
+    "user": 16,
+    "created_at": "2019-09-11T14:13:33.524Z"
+  }
+},
+{
+  "model": "meals.meal",
+  "pk": 30,
+  "fields": {
+    "name": "Donut",
+    "description": "A doughnut or donut is a type of fried dough confection or dessert food. The doughnut is popular in many countries and is prepared in various forms as a sweet snack that can be homemade or purchased in bakeries, supermarkets, food stalls, and franchised specialty vendors.",
+    "image": "https://www.blessthismessplease.com/wp-content/uploads/2009/12/glazed-donuts-3.jpg",
+    "cuisine": 22,
+    "user": 16,
+    "created_at": "2019-09-11T14:14:52.780Z"
+  }
+},
+{
   "model": "meals.comment",
   "pk": 1,
   "fields": {
@@ -153,6 +413,16 @@
     "user": 5,
     "created_at": "2019-09-09T10:07:44.161Z",
     "meal": 5
+  }
+},
+{
+  "model": "meals.comment",
+  "pk": 16,
+  "fields": {
+    "content": "Nice rolls mate!?\u00a0\ud83e\udd2f",
+    "user": 10,
+    "created_at": "2019-09-10T17:22:10.422Z",
+    "meal": 7
   }
 }
 ]
