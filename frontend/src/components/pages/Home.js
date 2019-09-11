@@ -19,9 +19,11 @@ const Home = () => {
 
               <div className="column">
                 {!Auth.isAuthenticated() && <div><Link to="/register" className="is-size-3">Register</Link></div>}
+                {Auth.isAuthenticated() && <Link to="/newsfeed" className="is-size-3">NewsFeed</Link>}
               </div>
               <div className="column">
                 {!Auth.isAuthenticated() && <div><Link to="/login" className="is-size-3">Login</Link></div>}
+                {Auth.isAuthenticated() && <Link to={`/users/${Auth.getPayload().sub}`} className="is-size-3">My Profile</Link>}
               </div>
 
             </div>

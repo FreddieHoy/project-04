@@ -41,7 +41,7 @@ class Profile extends React.Component {
               <h2 className="title is-3 dev-newsfeed-title">Whats been cookin?</h2>
             </div>
 
-            <Link className="column" to={`/users/${Auth.getPayload().sub}`}>
+            <Link to={`/users/${Auth.getPayload().sub}`} className="column" >
               <div className="columns">
                 <div className="column dev-news-logged-in">
                   <h2 className="subtitle is-5 dev-newsfeed-title is-pulled-right">Logged in: {this.state.user.username}</h2>
@@ -57,18 +57,19 @@ class Profile extends React.Component {
           <hr />
 
 
-          <div className="dev-news-meals-container">
+          <div className="dev-news-meals-container" style={{ maxHeight: `${120 * this.state.meals.length}px`}}>
 
             {this.state.meals && this.sortedMeals().map(meal =>
-              <div className="div-news-meal" key={meal.id}>
-                <Link to={`/meals/${meal.id}`}>
+              <div className="dev-news-meal" key={meal.id}>
+                <div>
                   <Card
                     name={meal.name}
                     image={meal.image}
                     handlehover={this.handleMouseHover}
                     user={meal.user}
+                    meal={meal}
                   />
-                </Link>
+                </div>
               </div>
             )}
 
