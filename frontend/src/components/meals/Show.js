@@ -14,14 +14,14 @@ class MealShow extends React.Component {
     this.state = {
       formData: {
         content: '',
-        user: Auth.getUser().username,
-        timeNow: new Date()
+        user: Auth.getUser().username
       }
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.formatDate = this.formatDate.bind(this)
     this.handleCommentDelete = this.handleCommentDelete.bind(this)
   }
 
@@ -62,6 +62,13 @@ class MealShow extends React.Component {
 
   }
 
+  formatDate(date) {
+    let newDate = date.slice(0, -16)
+    newDate = newDate.replace('T', ' ')
+    return newDate
+
+  }
+
   render() {
     return (
       <section className="section">
@@ -81,22 +88,25 @@ class MealShow extends React.Component {
             <hr />
 
             <div className="columns">
-              <Link to={`/users/${this.state.meal.user.id}`} className="image column is-one-third profile-pic">
-                <div className="is-rounded dev-show-userpic">
-                  {this.state.meal.user.image && <img className="is-rounded dev-show-userpic" src={this.state.meal.user.image} alt={this.state.meal.user.username}/>}
-                </div>
+              <Link to={`/users/${this.state.meal.user.id}`}   className="column has-text-centered">
+                <p className="title is-6">Created by:</p>
+                <p className="title is-6">Username: {this.state.meal.user.username}</p>
+                <p className="title is-6">Name: {this.state.meal.user.name}</p>
                 <br />
-                <div>
-                  <p>Username: {this.state.meal.user.username}</p>
+                <div className="image column profile-pic">
+                  {this.state.meal.user.image && <img className="is-rounded dev-show-userpic dev-center-userimage" src={this.state.meal.user.image} alt={this.state.meal.user.username}/>}
+                  <br />
                 </div>
               </Link>
 
               <div className="column is-two-thirds">
-                <p>{this.state.meal.name}</p>
-                <br />
-                <p>Cuisine: {this.state.meal.cuisine.name}</p>
-                <br />
+                <p className="title is-4">{this.state.meal.name}</p>
+                <p className="subtitle is-5">Cuisine: {this.state.meal.cuisine.name}</p>
+                <p className="subtitle is-5">Created: {this.formatDate(this.state.meal.created_at)}</p>
+                <hr />
+                <p className="subtitle is-5">Description:</p>
                 <p>{this.state.meal.description}</p>
+                <br />
                 <br />
                 <div>
                   {Auth.isCurrentUser(this.state.meal.user) && <div className="buttons">
@@ -109,14 +119,14 @@ class MealShow extends React.Component {
             </div>
 
             <hr />
-            <h2 className="title is-3 has-white-text">Comments</h2>
-            <div className="column box is-full">
+            <h2 className="title is-3 has-text-centered">Comments</h2>
+            <div className="column dev-center-comments box is-half">
               <div className="">
                 {this.state.meal.comments && this.state.meal.comments.map(comment =>
                   <Comment
                     key={comment.id}
                     user={comment.user}
-                    createdAt={comment.created_at}
+                    createdAt={this.formatDate(comment.created_at)}
                     content={comment.content}
                     id={comment.id}
                     handleCommentDelete={this.handleCommentDelete}

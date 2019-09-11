@@ -3,7 +3,6 @@ import axios from 'axios'
 // import { toast } from 'react-toastify'
 
 import ReactFilestack from 'filestack-react'
-import Auth from '../../lib/Auth'
 import { Link } from 'react-router-dom'
 
 class Register extends React.Component {
@@ -141,8 +140,10 @@ class Register extends React.Component {
               </div>
               <hr />
               <button className="button">Submit</button>
+              <br />
+              <br />
               <div>Already registered? Login in Here:
-                {!Auth.isAuthenticated() && <Link to="/login" className="">Login</Link>}
+                <Link to="/login" className="">Login</Link>
               </div>
             </form>
           </div>

@@ -7,19 +7,15 @@ import { Link } from 'react-router-dom'
 const Comment = ({ user, createdAt, content, id, handleCommentDelete}) => {
   return (
 
-    <div className="content table tableBorder">
-      <div className="box">
+    <div className="content box">
+      <button className="delete is-pulled-right" id={id} onClick= {handleCommentDelete}></button>
+      <div>
         <Link to={`/users/${user.id}`} >
-          {user.username}
+          <div className="subtitle is-5">{user.username} - {createdAt}</div>
         </Link>
-        <div>
-          {createdAt}
-        </div>
-        <div>
-          {content}
-        </div>
+        <hr />
+        <div className=""> - {content}</div>
         {Auth.isAuthenticated() && <div className="deleteContainer">
-          <button className="delete" id={id} onClick= {handleCommentDelete}></button>
         </div>}
       </div>
     </div>

@@ -41,7 +41,7 @@ class Login extends React.Component {
 
   render() {
     return (
-      <section className="section login-background">
+      <section className="section">
         <div className="container">
           <form onSubmit={this.handleSubmit}>
             <div className="box tableBorder">
@@ -75,8 +75,10 @@ class Login extends React.Component {
               </div>
               <hr />
               <button className="button">Submit</button>
+              <br />
+              <br />
               <div>Already registered? Login in Here:
-                {!Auth.isAuthenticated() && <Link to="/register" className="">Register</Link>}
+                <Link to="/register" className="">Register</Link>
               </div>
             </div>
           </form>

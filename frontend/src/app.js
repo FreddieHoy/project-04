@@ -15,6 +15,7 @@ import Newsfeed from './components/pages/Newsfeed'
 import New from './components/meals/New'
 import MealShow from './components/meals/Show'
 import MealEdit from './components/meals/Edit'
+// import Footer from './components/common/Footer'
 
 import '@fortawesome/fontawesome-free/js/all.js'
 import 'bulma'
@@ -42,7 +43,6 @@ class App extends React.Component {
             <Route path="/login" component={Login} />
             <Route path="/about" component={About} />
             <Route path="/" component={Home} />
-
           </Switch>
         </HashRouter>
       </div>

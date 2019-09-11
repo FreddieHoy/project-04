@@ -33,17 +33,18 @@ class Profile extends React.Component {
               {this.state.profile.image && <img className="is-rounded profile-pic" src={this.state.profile.image} alt={this.state.profile.name}/>}
             </div>
 
-            <div className="column dev-centerthis is-half">
+            <div className="column is-half">
 
               <h1>USERNAME: {this.state.profile.username}</h1>
+              <h1>NAME: {this.state.profile.name}</h1>
               <h1>EMAIL: {this.state.profile.email}</h1>
               <h1>Number of posts: {this.state.profile.meals.length}</h1>
               <hr />
               <h1>Bio: <br />{this.state.profile.bio}</h1>
             </div>
             <div className="is-one-quarter dev-profile-links">
-              {Auth.isAuthenticated() && <Link to="/meals/new" className="navbar-item">Post a meal</Link>}
-              {Auth.isAuthenticated() && <Link to={`/users/${this.state.profile.id}/edit`} className="navbar-item">Edit Profile</Link>}
+              {Auth.isAuthenticated() && <Link to="/meals/new" className="navbar-item title is-5">Post a meal</Link>}
+              {Auth.isAuthenticated() && <Link to={`/users/${this.state.profile.id}/edit`} className="navbar-item title is-5">Edit Profile</Link>}
             </div>
 
           </div>

@@ -23,7 +23,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 94vh;
+  min-height: 92vh;
 }
 .image-one {
   background-image: url(https://images.unsplash.com/photo-1503011510-c0e00592713b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2900&q=80)
@@ -85,6 +85,9 @@ body {
   max-height: 50%;
   display: block;
 }
+.dev-center-userimage {
+  margin: 0 auto;
+}
 //----------CARD
 .dev-card-div-sizing {
   height: 230px;
@@ -106,8 +109,6 @@ body {
   max-height: 50px;
   width: auto;
 }
-
-
 // -------------PROFILE Card
 .dev-profile-card-image-sizing {
   height: auto;
@@ -150,5 +151,12 @@ body {
   width: 48%;
   border: 1px solid #f5f5f5;
   margin: 5px 0;
+}
+// ---------------comment
+.dev-pad {
+  padding: 20px;
+}
+.dev-center-comments {
+  margin: 0 auto;
 }
 @import "~bulma"
