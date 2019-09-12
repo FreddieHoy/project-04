@@ -21,9 +21,7 @@ class Profile extends React.Component {
   }
 
   sortedMeals() {
-    const mealsToDisplay = this.state.meals.sort(function(a, b) {
-      b.created_at - a.created_at
-    })
+    const mealsToDisplay = this.state.meals.sort((a, b) => b.created_at > a.created_at ? 1 : -1)
     return mealsToDisplay
   }
 
