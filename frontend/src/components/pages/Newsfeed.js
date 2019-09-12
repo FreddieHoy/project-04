@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import Auth from '../../lib/auth'
+import Auth from '../../lib/Auth'
 import Card from '../common/Card'
 import { Link } from 'react-router-dom'
 
