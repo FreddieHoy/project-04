@@ -85,48 +85,6 @@
 },
 {
   "model": "jwt_auth.user",
-  "pk": 12,
-  "fields": {
-    "password": "pbkdf2_sha256$150000$zzI3fwM6BFBd$tQZIb5yDImPy+o4bR8TVwFjoYEl8I0aWVa+chJGTtwg=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "fred",
-    "first_name": "",
-    "last_name": "",
-    "email": "freddiehoy@hotmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2019-09-09T15:12:05.988Z",
-    "name": "",
-    "image": "https://www.deliciousmagazine.co.uk/wp-content/uploads/2019/03/toastie-768x960.jpg",
-    "bio": "",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "jwt_auth.user",
-  "pk": 15,
-  "fields": {
-    "password": "pbkdf2_sha256$150000$4prhODo2ciEI$2TBQb+J7jVFhjXMcJAHWYAo/XVPzPY0qdceCIiR920w=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "gary",
-    "first_name": "",
-    "last_name": "",
-    "email": "gary@gary.Gary",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2019-09-10T12:38:52.039Z",
-    "name": "",
-    "image": "https://cdn.filestackcontent.com/dkjyXRAnQ0ai1h9Ja0KI",
-    "bio": "I look to cook baby!!!!!!!!!!!",
-    "groups": [],
-    "user_permissions": []
-  }
-},
-{
-  "model": "jwt_auth.user",
   "pk": 16,
   "fields": {
     "password": "pbkdf2_sha256$150000$MuVsY087cmNC$+GpRrk4sDlcroJtQVIYCkoKBV913chTW4eHGo9PBVYQ=",
