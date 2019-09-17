@@ -8,8 +8,7 @@ This is my 4th and final coding project on the 3 month, GA software engineering 
 
 The project took 1 week to build, and it was done using Node.js and React on the front end. Coupled with Python & Django.py framework on the backend.
 
-![YesChef screen shot](<img width="1440" alt="Screenshot 2019-09-12 at 10 20 30" src="https://user-images.githubusercontent.com/51379192/64771611-2dd77500-d547-11e9-81c4-d9a0c1719df5.png">)
-
+![YesChef screen shot](https://user-images.githubusercontent.com/51379192/64771611-2dd77500-d547-11e9-81c4-d9a0c1719df5.png)
 
 # Brief
 * **Build a full-stack application** by making your own backend and your own front-end
@@ -39,18 +38,8 @@ The project took 1 week to build, and it was done using Node.js and React on the
 * Git
 * GitHub
 
-
-## Login
-![login](https://user-images.githubusercontent.com/51379192/64777318-d2f74b00-d551-11e9-8fdf-e19c095cb121.gif)
-
-## View Profile
-![profile](https://user-images.githubusercontent.com/51379192/64777354-e1456700-d551-11e9-8256-bdbd6d9bac75.gif)
-
-## See meal info and comments
-![show](https://user-images.githubusercontent.com/51379192/64777449-1487f600-d552-11e9-816b-eb78e5739c08.gif)
-
 ### All features
-* Login & out User
+* User login & out
 * Register User
 * Edit User information
 * Post Meal
@@ -62,6 +51,16 @@ The project took 1 week to build, and it was done using Node.js and React on the
 * Newsfeed
 * Profile
 * About
+
+## Login
+![login](https://user-images.githubusercontent.com/51379192/64777318-d2f74b00-d551-11e9-8fdf-e19c095cb121.gif)
+
+## View Profile
+![profile](https://user-images.githubusercontent.com/51379192/65035752-dfa8e400-d941-11e9-83ed-24807a5e2a26.gif)
+
+## See meal info and comments
+![show](https://user-images.githubusercontent.com/51379192/64777449-1487f600-d552-11e9-816b-eb78e5739c08.gif)
+
 
 ## ProjectLog
 
@@ -102,9 +101,24 @@ When uploading images to the site, both using the Django /admin page or the user
 
 When coming to display these different aspect images on both the profile & newsfeed it was difficult to come up with a good solution that looked presentable.
 
-For news feed I columned the 
+For both the NewsFeed and Profile pages, the meals were displayed in an unstructured format to maintain a full width of the images. A solution I was very happy with.
 
+> Newsfeed.js
 
+![newsfeedNEW](https://user-images.githubusercontent.com/51379192/65037310-467bcc80-d945-11e9-92ee-16d663eaa0eb.gif)
 
+### Moving Forward
 
-The example data for the site was added using the Django /admin page adding 'meals' to each users. The problem with this was that there was no way to standardise the the size of the image for each meal. Similarly for Users useing filestacker on the site although they can crop
+* Add a like button to Meals
+* Enable users to post many images and display using a carousel.
+* Standardise photo sizing for better display.
+* Meeting with a UX designer to improve user journey.
+
+## Contact
+
+Freddie Hoy
+
+Email: freddiehoy0@gmail.com
+
+[Portfolio](https://freddiehoy.github.io/) | [LinkedIn](https://www.linkedin.com/in/freddie-hoy/) |
+[GitHub](https://github.com/FreddieHoy?tab=repositories)
