@@ -46,7 +46,7 @@ class Profile extends React.Component {
             </Link>
           </div>
           <hr />
-          <div className="dev-news-meals-container" style={{ maxHeight: `${120 * this.state.meals.length}px`}}>
+          <div className="dev-news-meals-container" style={{ maxHeight: `${140 * this.state.meals.length}px`}}>
             {this.state.meals && this.sortedMeals().map(meal =>
               <div className="dev-news-meal" key={meal.id}>
                 <div>

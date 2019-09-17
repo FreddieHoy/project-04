@@ -76,6 +76,8 @@ The project took 1 week to build, and it was done using Node.js and React on the
 
 ## Challenges
 
+#### Extending the User Model
+
 The First and most significant challenge was extending the user in Django. Using information found online and working with other people in the class we came up with a method.
 
 We were able to extend the User Model in our jwt_auth app folder. This was done by extending the defualt Django user models using an 'AbstractUser' - a feature Django provides.
@@ -93,3 +95,16 @@ class User(AbstractUser):
     # add this line... not sure what it does..
     objects = UserManager()
 ```
+
+#### Displaying different size images.
+
+When uploading images to the site, both using the Django /admin page or the user posting a meal from their profile using React-filestack, neither way standardised the size and aspect of the image added.
+
+When coming to display these different aspect images on both the profile & newsfeed it was difficult to come up with a good solution that looked presentable.
+
+For news feed I columned the 
+
+
+
+
+The example data for the site was added using the Django /admin page adding 'meals' to each users. The problem with this was that there was no way to standardise the the size of the image for each meal. Similarly for Users useing filestacker on the site although they can crop

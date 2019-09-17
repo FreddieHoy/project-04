@@ -88,12 +88,12 @@ body {
 }
 //----------CARD
 .dev-card-div-sizing {
-  height: 230px;
-  width: auto;
+  max-width: 300px;
+  max-height: auto;
 }
 .dev-card-image-sizing {
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 100%;
   display: block;
   margin: 0 auto;
 }

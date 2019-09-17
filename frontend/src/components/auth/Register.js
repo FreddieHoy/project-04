@@ -65,6 +65,18 @@ class Register extends React.Component {
                 {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
               </div>
               <div className="field">
+                <label className="label">Name</label>
+                <div className="control">
+                  <input
+                    className="input is-rounded"
+                    name="name"
+                    placeholder="Dave"
+                    onChange={this.handleChange}
+                  />
+                </div>
+                {this.state.errors.name && <small className="help is-danger">{this.state.errors.name}</small>}
+              </div>
+              <div className="field">
                 <label className="label">Email</label>
                 <div className="control">
                   <input
