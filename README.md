@@ -1,12 +1,15 @@
 # Project 4: YesChef
 
+The site:
+[YesChef](sei42-yes-chef.herokuapp.com)
+
 ## Overview
 
-I have made a website where users post pictures and descriptions of meals they have made at home, allowing other people see your home made recipes and comment on them. User can then share ideas about home cooking!
+I have made a website where users post pictures and descriptions of meals they have made at home, allowing other people to see your home made recipes! User can then share ideas about home cooking, comment on other peoples meals, and build up their profile!
 
 This is my 4th and final coding project on the 3 month, GA software engineering immersive course.
 
-The project took 1 week to build, and it was done using Node.js and React on the front end. Coupled with Python & Django.py framework on the backend.
+The project took 1 week to build, and I did it on my own using JavaScript Node.js and React on the front end. Coupled with Python & Django.py framework on the backend.
 
 ![YesChef screen shot](https://user-images.githubusercontent.com/51379192/64771611-2dd77500-d547-11e9-81c4-d9a0c1719df5.png)
 
@@ -22,12 +25,13 @@ The project took 1 week to build, and it was done using Node.js and React on the
 
 ## Technologies used:
 
-* HTML5, SCSS, JS
+* HTML5 & SCSS
 * Javascript ES6
 * Node.js
 * React
 * Python
 * Django
+* SQL (sqlite3) - PostgresSQL for Deployment
 * Yarn
 * Webpack
 * Bulma
@@ -52,6 +56,18 @@ The project took 1 week to build, and it was done using Node.js and React on the
 * Profile
 * About
 
+## Approach Taken
+
+I started on the backend. Having just learned python and how to set up Django in the last two weeks, I found setting up the backend to be a difficult challenge. I would like to used test-driven development, however the learning curve was too steep at the time.
+
+One thing I enjoyed straight away with Django is the effective admin page that is set up. I think this is a very useful tool and one of my favourite features of the wireframe back-end. The Other thing I noticed is the lack of repeating code!
+
+A difficult with Django is its use of apps. Using these as building blocks was a new challenges in connecting the frontend to the backend along with the meals and jwt_auth apps.
+
+I set up the front end so that Users could only view the newsfeed and a profile page once they were logged in.
+
+Using react again in the front end I wanted to use a set up that would be slightly different to my GA projects 2 & 3. So Instead of an index page I displayed a news feed page this displayed the most recent post from any user on the site first. I also added a profile page, so that users could see all the of the meals that they have posted.
+
 ## Login
 ![login](https://user-images.githubusercontent.com/51379192/64777318-d2f74b00-d551-11e9-8fdf-e19c095cb121.gif)
 
@@ -73,13 +89,13 @@ The project took 1 week to build, and it was done using Node.js and React on the
 | **1 day** | Bug fixes    |
 | **0.5 day** | Deployment     |
 
-## Challenges
+# Challenges
 
-#### Extending the User Model
+### Extending the User Model
 
-The First and most significant challenge was extending the user in Django. Using information found online and working with other people in the class we came up with a method.
+The First and most significant challenge was extending the default user model that Django provides. Using information found online and working with other people in the class we came up with a solution where the model is extended in the authentication app jwt_auth using an 'AbstractUser' - a feature Django provides.
 
-We were able to extend the User Model in our jwt_auth app folder. This was done by extending the defualt Django user models using an 'AbstractUser' - a feature Django provides.
+Although the solution is simple there is a number of components necessary for it to work especially when it come to connecting the user model to the meal model in the meals app. The solution involved changing setting in the project app
 
 > jwt_auth.models.py
 
@@ -95,7 +111,26 @@ class User(AbstractUser):
     objects = UserManager()
 ```
 
-#### Displaying different size images.
+This included and commenting out different parts of the settings.py file.
+
+For Example:
+
+> project/setting.py (This was added)
+```
+AUTH_USER_MODEL = 'jwt_auth.User'
+```
+
+### Django & Data
+
+This was my first ever use of SQL in a project. Learning how to create and use one-to-many and many-to-many relationships and drawing Entity relationship diagrams (ERD).
+
+Using Model View Controllers was interesting way of creating RESTful routes but challenging for a beginner.
+
+Make migrations to create the data table headers in SQL was a challenge. Issues came later down the line when changes were made to the models after Data had been seeded into the SQL tables.
+
+The issue came when creating fixtures in order to seed data. Because many of the data in the meals app folder can only exist once user data is made. Fixtures must first be made in the jwt_auth app before the meals app.
+
+### Front end - Displaying different size images.
 
 When uploading images to the site, both using the Django /admin page or the user posting a meal from their profile using React-filestack, neither way standardised the size and aspect of the image added.
 
@@ -107,14 +142,36 @@ For both the NewsFeed and Profile pages, the meals were displayed in an unstruct
 
 ![newsfeedNEW](https://user-images.githubusercontent.com/51379192/65037310-467bcc80-d945-11e9-92ee-16d663eaa0eb.gif)
 
-### Moving Forward
+## THE BIG WINS
 
-* Add a like button to Meals
-* Enable users to post many images and display using a carousel.
-* Standardise photo sizing for better display.
-* Meeting with a UX designer to improve user journey.
+- Extending the user model.
+- Successful use of Model View Controllers
+- Creating seed data.
+- Creating a profile page.
+- Displaying the different sized images in newsfeed and profile pages.
 
-## Contact
+## What have I learned
+
+- How to set up Django using apps, Model View Controllers, SQL etc.
+- The advantages of using Django. Admin page, quick set up, lack of repeating code.
+- A deeper knowledge of how SQL Databases work.
+- Making migrations in order to create the database.
+- How to seed data into these data tables in sqlite3.
+- How to use Model view Controllers to create RESTful pathways.
+- Model relationships in SQL.
+
+## Moving Forward
+
+- I would like to used test-driven development. The learning curve was too steep at the time.
+- Following different users so you can only see the posts that those users make.
+- Add a like button to Meals.
+- Enable users to post many images and display using a carousel.
+- Standardise photo sizing for better display.
+- Meeting with a UX designer to improve user journey.
+
+---
+
+# Contact
 
 Freddie Hoy
 
