@@ -1,7 +1,7 @@
 # Project 4: YesChef
 
 The site:
-[YesChef](sei42-yes-chef.herokuapp.com)
+[YesChef](https://sei42-yes-chef.herokuapp.com/#/)
 
 ## Overview
 
